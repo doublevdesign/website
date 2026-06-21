@@ -17,7 +17,7 @@ const alfaSlabOne = Alfa_Slab_One({
 export const metadata: Metadata = {
   title: 'doublevdesign – strategic design',
   description:
-    'Strategic design consulting without the corporate fluff. People trust what they can see, feel, and experience.',
+    'Strategic design  without the corporate fluff.',
   generator: 'v0.app',
   icons: {
     icon: [

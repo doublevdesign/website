@@ -1,16 +1,19 @@
 "use client"
 
 import * as React from "react"
+import { HTMLAttributes, useEffect, useState } from "react"
 import useEmblaCarousel from "embla-carousel-react"
-import { HTMLAttributes } from "react"
 import { cn } from "@/lib/utils"
 
+// Types
 type CarouselApi = ReturnType<typeof useEmblaCarousel>[1]
 
+// Context
 export const CarouselContext = React.createContext<{ api: CarouselApi | null }>({
   api: null,
 })
 
+// Hook for carousel setup
 export function useCarousel() {
   const [emblaRef, api] = useEmblaCarousel({
     loop: true,
@@ -20,10 +23,32 @@ export function useCarousel() {
   return { emblaRef, api }
 }
 
-export function Carousel({ 
-  children, 
-  emblaRef 
-}: { 
+// Hook for tracking selected index
+export function useCarouselIndex(api: CarouselApi | null) {
+  const [scrollIndex, setScrollIndex] = useState(0)
+
+  useEffect(() => {
+    if (!api) return
+
+    const onSelect = () => {
+      setScrollIndex(api.selectedScrollSnap())
+    }
+
+    api.on("select", onSelect)
+
+    return () => {
+      api.off("select", onSelect)
+    }
+  }, [api])
+
+  return scrollIndex
+}
+
+// Components
+export function Carousel({
+  children,
+  emblaRef,
+}: {
   children: React.ReactNode
   emblaRef: React.RefObject<HTMLDivElement> | ((instance: HTMLDivElement | null) => void)
 }) {
@@ -34,8 +59,6 @@ export function Carousel({
   )
 }
 
-
-
 export function CarouselContent({
   children,
   className,
@@ -43,10 +66,8 @@ export function CarouselContent({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        "embla__container flex gap-6 md:gap-8 px-8 pt-6 pb-6 md:pt-8 md:pb-8",
-        className,
-      )}
+      className={cn("embla__container flex gap-6 md:gap-8 px-8", className)}
+      
       {...props}
     >
       {children}
@@ -62,9 +83,7 @@ export function CarouselItem({
   className?: string
 }) {
   return (
-    <div
-      className={`embla__slide flex-none ${className}`}
-    >
+    <div className={`embla__slide flex-none ${className}`}>
       {children}
     </div>
   )
@@ -75,7 +94,7 @@ export function CarouselPrevious() {
 
   return (
     <button
-      className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-105 border border-red-500/20 hover:bg-background"
+      className="absolute left-35 top-[35%] -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-105 bg-background/60 hover:bg-background border border-red-500/20"
       onClick={() => api?.scrollPrev()}
     >
       <span className="text-red-600 text-2xl font-extrabold tracking-tight">
@@ -90,85 +109,12 @@ export function CarouselNext() {
 
   return (
     <button
-      className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-105 border border-red-500/20 hover:bg-background"
-      onClick={() => {
-        if (api) return api.scrollNext()
-        const embla = document.querySelector('.embla') as HTMLElement | null
-        if (embla) embla.scrollBy({ left: Math.round(embla.clientWidth * 0.7), behavior: 'smooth' })
-      }}
-    ><span className="text-red-600 text-2xl font-extrabold tracking-tight">
-  →
-</span>
+      className="absolute right-65 top-[35%] -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-105 bg-background/60 hover:bg-background border border-red-500/20"
+      onClick={() => api?.scrollNext()}
+    >
+      <span className="text-red-600 text-2xl font-extrabold tracking-tight">
+        →
+      </span>
     </button>
-  )
-}
-
-export function CarouselTopNav() {
-  const { api } = React.useContext(CarouselContext)
-
-  return (
-    <div className="flex items-center justify-center gap-4 mb-8">
-      <button
-        className="rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-110 border border-red-500/20 hover:bg-background"
-        onClick={() => {
-          if (api) return api.scrollPrev()
-          const embla = document.querySelector('.embla') as HTMLElement | null
-          if (embla) embla.scrollBy({ left: -Math.round(embla.clientWidth * 0.7), behavior: 'smooth' })
-        }}
-        aria-label="Previous project"
-      >
-        <span className="text-red-600 text-2xl font-bold">
-          ‹
-        </span>
-      </button>
-      <button
-        className="rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-110 border border-red-500/20 hover:bg-background"
-        onClick={() => {
-          if (api) return api.scrollNext()
-          const embla = document.querySelector('.embla') as HTMLElement | null
-          if (embla) embla.scrollBy({ left: Math.round(embla.clientWidth * 0.7), behavior: 'smooth' })
-        }}
-        aria-label="Next project"
-      >
-        <span className="text-red-600 text-2xl font-bold">
-          ›
-        </span>
-      </button>
-    </div>
-  )
-}
-
-export function CarouselBottomNav() {
-  const { api } = React.useContext(CarouselContext)
-
-  return (
-    <div className="flex items-center justify-center gap-4 mt-8">
-      <button
-        className="rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-110 border border-red-500/20 hover:bg-background"
-        onClick={() => {
-          if (api) return api.scrollPrev()
-          const embla = document.querySelector('.embla') as HTMLElement | null
-          if (embla) embla.scrollBy({ left: -Math.round(embla.clientWidth * 0.7), behavior: 'smooth' })
-        }}
-        aria-label="Previous project"
-      >
-        <span className="text-red-600 text-2xl font-bold">
-          ‹
-        </span>
-      </button>
-      <button
-        className="rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-110 border border-red-500/20 hover:bg-background"
-        onClick={() => {
-          if (api) return api.scrollNext()
-          const embla = document.querySelector('.embla') as HTMLElement | null
-          if (embla) embla.scrollBy({ left: Math.round(embla.clientWidth * 0.7), behavior: 'smooth' })
-        }}
-        aria-label="Next project"
-      >
-        <span className="text-red-600 text-2xl font-bold">
-          ›
-        </span>
-      </button>
-    </div>
   )
 }

@@ -27,14 +27,9 @@ export function Hero() {
       <h1 className="group font-heading text-6xl leading-[0.95] text-foreground text-balance sm:text-7xl md:text-8xl lg:text-9xl">
         no <span className="inline-block hum group-hover:animate-hum">buzzwords.</span>
       </h1>
-        <Squiggle
-          aria-hidden="true"
-          className="mt-4 h-5 w-52 text-primary sm:w-72"
-        />
+    
         <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-foreground/90 text-pretty">
-          People trust what they can see, feel, and experience. Authenticity
-          isn&apos;t just a nice-to-have, it&apos;s what makes strategy work.
-          Real connection is where the best work begins.
+          People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy – it's what makes strategy work. In a noisy industry, I skip the process-speak to focus on what actually moves your business forward. We start with a clear conversation, not a pitch deck.
         </p>
         <div className="mt-10 inline-block">
           <div className="relative inline-block group">
@@ -42,7 +37,7 @@ export function Hero() {
               onClick={() => scrollToId("contact")}
               className="rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground transition-transform duration-200 group-hover:scale-105"
             >
-              Let&apos;s see if we&apos;re a match.
+              It starts with hello! ✦
             </button>
           
 

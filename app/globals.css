@@ -135,3 +135,26 @@
 .embla__slide.is-selected {
   opacity: 1;
 }
+
+
+@keyframes feelFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+
+  25% {
+    transform: translateY(-1.5px) scale(1.01);
+  }
+
+  50% {
+    transform: translateY(0px) scale(1);
+  }
+
+  75% {
+    transform: translateY(1.5px) scale(1.01);
+  }
+
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
