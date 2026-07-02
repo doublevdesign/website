@@ -30,7 +30,7 @@ const projects: Project[] = [
     title: "Auswendig Visual Identity",
     image: "/projects/project-one.png",
     tagline:
-      "Challenge: Standing out against competitors in a crowded app market with a clean and unique visual identity.",
+      "Standing out against competitors in a crowded app market with a clean and unique visual identity.",
     tag: "Branding and UI Design",
     details: {
       overview:
@@ -49,14 +49,18 @@ const projects: Project[] = [
     title: "Graz City Council election",
     image: "/projects/project-two.png",
     tagline:
-      "Challenge: Delivering a high-impact campaign under strict Austrian political advertising laws that limit creative freedom and media channels.",
+      "Delivering a high-impact campaign under strict Austrian political advertising laws that limit creative freedom and media channels.",
     tag: "political communications",
     details: {
-      overview:
-        "A campaign visual system created to deliver trust, urgency, and clarity across print, outdoor, and digital channels.",
-      more:
-        "This project prioritized accessibility and strong typography to support multilingual messaging and voter engagement.",
-      gallery: [
+      overview :"Working within strict Austrian political advertising regulations and an established identity system, the challenge was to create a campaign that remained consistent while staying flexible across multiple formats and contexts." ,     
+        
+      more: `I was responsible for the visual direction and production, translating the existing identity into applications across posters, flyers, stickers, apparel, and a branded cargo bike.
+
+       In cooperation with the campaign team and an external designer, I developed production-ready visuals using Photoshop collage work, AI-supported illustration, and detailed mockups to guide photography and final outputs, ensuring consistency across all applications.`,
+      
+        
+        gallery: [
+
         "/projects/project-two.png",
         "/projects/project-two-a.png",
         "/projects/project-two-b.png",
@@ -68,13 +72,11 @@ const projects: Project[] = [
     title: "Non-Profit Fundraising",
     image: "/projects/project-three.png",
     tagline:
-      "Challenge: Addressing businesses to increase donations and support for a children's helpline, while maintaining a professional and approachable image.",
+      "Refreshing a long-standing non-profit's fundraising communications without losing the trust and familiarity built over time.",
     tag: "B2B Fundraising",
     details: {
-      overview:
-        "A campaign toolkit designed to make donation asks feel warm, credible, and easy to share.",
-      more:
-        "The work included message framing, visual storytelling, and a toolkit for offline and online donor outreach.",
+      overview: "The challenge was to create fundraising materials that felt current and engaging while respecting an established visual identity that had seen little development in recent years. Rather than replacing what already existed, the focus was on identifying the elements that still worked and building a more contemporary visual language around them.",
+      more:"Working from an older campaign and a corporate design manual dating back to 2005, I developed a poster concept aimed at business audiences, balancing professionalism with the approachable tone expected from a children's crisis hotline. The design established a clearer visual hierarchy and a more contemporary look while remaining recognizably part of the existing brand.",
       gallery: [
         "/projects/project-three.png",
         "/projects/project-three-a.png",
@@ -89,7 +91,7 @@ const projects: Project[] = [
     tagline: "Challenge: Adapting a visual system to materials across different channels and audiences, while maintaining a cohesive and recognizable brand identity.",
     tag: "Festival Branding",
     details: {
-      overview: "Challenge: Adapting a visual system to marketing materials across different channels with different audiences, while maintaining a cohesive and recognizable brand identity.",
+      overview: "Adapting a visual system to marketing materials across different channels with different audiences, while maintaining a cohesive and recognizable brand identity.",
       more:
         "",
       gallery: [
@@ -153,16 +155,34 @@ export function Projects() {
 
   return (
   <>
-    <section id="work" className="relative bg-background px-6 py-24 md:py-32 overflow-hidden">
+    <section id="work" className="relative px-6 py-24 md:py-32 overflow-hidden">
       <div className="relative mx-auto max-w-6xl z-10">
+        <div className="grid items-start gap-10 md:grid-cols-12">
+          
+          {/* LEFT: TEXT */}
+          <div className="md:col-span-7">
+                   <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-7xl">
+                      Selected Work
+                    </h2>
 
-        <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-7xl">
-          Selected Work
-        </h2>
+                    <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
+                      Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
+                    </p>
+       
+        {/* RIGHT: IMAGE (hidden on mobile)
+          <div className="hidden md:flex md:col-span-5 items-start justify-end">
+            <div className="relative w-full max-w-sm aspect-square">
+              <Image
+                src="/laptop-lady.png"
+                alt="Decorative project visual"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div> */}
+          </div>
+        </div>
 
-        <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
-          Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
-        </p>
 
         {/* CAROUSEL */}
         <div className="relative mt-14 w-full">
@@ -324,13 +344,21 @@ export function Projects() {
                 {selectedProject.title}
               </h3>
 
+          
               <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
                 {selectedProject.details.overview}
               </p>
-
-              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                {selectedProject.details.more}
-              </p>
+              
+             {selectedProject.details.more
+              .split("\n\n")
+              .map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="text-sm sm:text-base leading-relaxed text-muted-foreground mb-4 last:mb-0"
+                >
+                  {paragraph}
+                </p>
+              ))}
 
               <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
                 <button onClick={prevProject} className="text-sm text-muted-foreground hover:text-foreground">

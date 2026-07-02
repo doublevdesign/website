@@ -94,7 +94,7 @@ export function CarouselPrevious() {
 
   return (
     <button
-      className="absolute left-35 top-[35%] -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-105 bg-background/60 hover:bg-background border border-red-500/20"
+      className="absolute left-65 top-[35%] -translate-y-1/2 rounded-full bg-background/80 p-3 shadow-lg backdrop-blur transition hover:scale-105 bg-background/60 hover:bg-background border border-red-500/20"
       onClick={() => api?.scrollPrev()}
     >
       <span className="text-red-600 text-2xl font-extrabold tracking-tight">

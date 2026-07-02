@@ -8,14 +8,9 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[calc(100svh-65px)] items-center overflow-hidden bg-background px-6"
+      className="relative flex min-h-[calc(100svh-65px)] items-center overflow-hidden px-6"
     >
-      {/* SAFE DECORATIVE LAYER */}
-<div aria-hidden="true" className="pointer-events-none">
-  <Blob className="absolute -right-20 top-10 h-80 w-80 text-pink/40" />
-  <Blob className="absolute -left-24 bottom-6 h-64 w-64 rotate-45 text-orange/25" />
-  <Star className="absolute right-10 bottom-24 h-12 w-12 text-orange/70 md:right-32" />
-</div>
+
 
 <div aria-hidden="true" className="pointer-events-none absolute inset-0"></div>
 

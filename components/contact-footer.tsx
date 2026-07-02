@@ -13,7 +13,7 @@ export function ContactFooter() {
   }
 
   return (
-    <footer id="contact" className="px-6 py-24 md:py-32" style={{ backgroundColor: '#E7AAC0' }}>
+    <footer id="contact" className="ppx-6 pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: '#E7AAC0' }}>
       <div className="mx-auto max-w-3xl">
         <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-7xl">
           let&apos;s talk.
@@ -91,7 +91,7 @@ export function ContactFooter() {
           </form>
         )}
 
-        <div className="mt-20 flex flex-col items-center gap-3 border-t border-foreground/20 py-8 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div className="mt-16 flex flex-col items-center gap-3 border-t border-foreground/20 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <p className="text-xs text-foreground/70">
             © {new Date().getFullYear()} doublevdesign. All rights reserved.
           </p>
