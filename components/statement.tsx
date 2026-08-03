@@ -1,4 +1,4 @@
-import { Squiggle } from "@/components/doodles"
+import { Squiggle } from "@/components/doodles/intex"
 
 export function Statement() {
   return (

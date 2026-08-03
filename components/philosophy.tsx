@@ -1,16 +1,15 @@
-import { Star, Arrow } from "@/components/doodles"
+import { Star } from "@/components/doodles/intex"
 import { Button } from "@/components/ui/button"
 import { scrollToId } from "@/lib/scroll"
 import StrategyHeading from "@/components/strategyheading";
 
 export function Philosophy() {
   return (
-    <section id="about" className="relative px-6 py-24 md:py-32">
+    <section id="about" className="relative z-20 px-6 py-24 md:py-32">
      <div className="mx-auto max-w-6xl">
     
     
-          <div className="rounded-[3rem] bg-foreground p-8 md:p-12 lg:p-16">
-          
+        <div className="rounded-[3rem] bg-foreground p-8 md:p-12 lg:p-16 relative z-20">          
           <div className="grid items-start gap-12 md:grid-cols-12">
             {/* Header Section */}
             <div className="md:col-span-5 px-6 md:px-0">
@@ -29,10 +28,7 @@ export function Philosophy() {
           
         </div> 
        
-              {/* <Arrow
-                aria-hidden="true"
-                className="mt-10 ml-30 rotate-12 hidden h-12 w-16 text-orange/90 md:block" 
-              /> */}
+    
 
         {/* --- CARDS SECTION */}
         <div className="mt-12 md:mt-16 px-6 md:px-0"> 
@@ -71,7 +67,7 @@ export function Philosophy() {
                   working with me
                 </h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  Not another textbook theory. Someone who has navigated the messy reality of scaling a brand before. I bring that real-world experience to every project, so we can skip the guesswork and get straight to building.
+                  Not another textbook theory. Every brand starts as a messy mix of ideas, questions, and possibilities. I help bring clarity to that process, creating identities that feel authentic, intentional, and uniquely yours.
                 </p>
               </div>
             </div>

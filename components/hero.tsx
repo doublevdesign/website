@@ -1,7 +1,7 @@
 "use client"
 
 import { scrollToId } from "@/lib/scroll"
-import { Blob, Squiggle, Star } from "@/components/doodles"
+import { Blob, Squiggle, Star } from "@/components/doodles/intex"
 import Image from "next/image"
 
 export function Hero() {
@@ -24,8 +24,7 @@ export function Hero() {
       </h1>
     
         <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-foreground/90 text-pretty">
-          People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy – it's what makes strategy work. In a noisy industry, I skip the process-speak to focus on what actually moves your business forward. We start with a clear conversation, not a pitch deck.
-        </p>
+People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy — it's what makes a brand memorable. I create visual identities and design systems that give ideas a language people can connect with. </p>
         <div className="mt-10 inline-block">
           <div className="relative inline-block group">
             <button

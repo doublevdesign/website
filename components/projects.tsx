@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/carousel"
 
 import Image from "next/image"
-import { Underline } from "@/components/doodles"
 
 type Project = {
   title: string
@@ -26,25 +25,7 @@ type Project = {
 }
 
 const projects: Project[] = [
-  {
-    title: "Auswendig Visual Identity",
-    image: "/projects/project-one.png",
-    tagline:
-      "Standing out against competitors in a crowded app market with a clean and unique visual identity.",
-    tag: "Branding and UI Design",
-    details: {
-      overview:
-        "A full identity system built to feel modern, tactile, and unmistakably memorable across packaging, web, and social.",
-      more:
-        "This project included exploration of color, motion, and messaging to position Auswendig as a premium but playful brand.",
-      gallery: [
-        "/projects/project-one.png",
-        "/projects/project-one-a.png",
-        "/projects/project-one-b.png",
-        "/projects/project-one-c.png",
-      ],
-    },
-  },
+
   {
     title: "Graz City Council election",
     image: "/projects/project-two.png",
@@ -65,6 +46,25 @@ const projects: Project[] = [
         "/projects/project-two-a.png",
         "/projects/project-two-b.png",
         "/projects/project-two-c.png",
+      ],
+    },
+  },
+    {
+    title: "Auswendig Visual Identity",
+    image: "/projects/project-one.png",
+    tagline:
+      "Standing out against competitors in a crowded app market with a clean and unique visual identity.",
+    tag: "Branding and UI Design",
+    details: {
+      overview:
+        "A full identity system built to feel modern, tactile, and unmistakably memorable across packaging, web, and social.",
+      more:
+        "This project included exploration of color, motion, and messaging to position Auswendig as a premium but playful brand.",
+      gallery: [
+        "/projects/project-one.png",
+        "/projects/project-one-a.png",
+        "/projects/project-one-b.png",
+        "/projects/project-one-c.png",
       ],
     },
   },
