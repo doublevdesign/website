@@ -44,7 +44,7 @@ export default function StrategyHeading() {
               className="inline-block"
               style={{
                 animation: isFeel
-                  ? "feelFloat 5.5s ease-in-out infinite"
+                  ? "none"
                   : "none",
                 willChange: "transform",
               }}

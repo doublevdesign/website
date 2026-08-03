@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Azeret_Mono, Alfa_Slab_One } from 'next/font/google'
 import './globals.css'
+import SmoothScroll from "@/components/SmoothScroll"
 
 const azeretMono = Azeret_Mono({
   variable: '--font-azeret-mono',
@@ -55,7 +56,10 @@ export default function RootLayout({
       className={`${azeretMono.variable} ${alfaSlabOne.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <SmoothScroll>
         {children}
+        </SmoothScroll>
+       
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

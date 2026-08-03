@@ -8,32 +8,26 @@ export function Philosophy() {
      <div className="mx-auto max-w-6xl">
     
     
-       <div className="rounded-[2rem] bg-foreground p-8 md:p-12 lg:p-16">
+       <div className="rounded-[2rem] bg-foreground p-8 md:p-10 lg:p-12">
   <div className="grid items-start gap-10 md:grid-cols-12">
 
     {/* Header */}
     <div className="md:col-span-5">
-      <p className="mb-6 text-sm font-semibold uppercase tracking-widest text-background/60">
-        my approach
-      </p>
-
-      <h2 className="font-heading text-4xl leading-tight text-background sm:text-5xl md:text-6xl">
-        clarity before creativity.
-      </h2>
+      <StrategyHeading />
     </div>
 
     {/* Text */}
     <div className="md:col-span-7">
-      <p className="max-w-xl text-lg leading-relaxed text-background/90">
-        Great design starts with understanding. Before jumping into colours,
-        logos, or layouts, we take the time to understand what makes your
-        business unique, where you want to go, and what your audience needs.
-      </p>
+      <div className="max-w-xl">
+        <p className="text-lg leading-relaxed text-background/90 text-pretty">
+          Chances are: you're busy. You don't need more disconnected ideas, random visuals, or marketing that doesn't quite know where it's going. You need a clear direction and a brand that helps people understand what makes your business unique.
+        </p>
 
-      <p className="mt-6 max-w-xl text-lg leading-relaxed text-background/90">
-        Together, we turn ideas into a clear identity that feels authentic,
-        works in the real world, and gives your brand the confidence to grow.
-      </p>
+        <p className="mt-6 text-lg leading-relaxed text-background/90 text-pretty">
+          Together, we turn ideas into a clear identity that feels authentic,
+          works in the real world, and gives your brand the confidence to grow.
+        </p>
+      </div>
     </div>
 
   </div>
