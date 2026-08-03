@@ -1,7 +1,6 @@
 "use client"
 
 import { scrollToId } from "@/lib/scroll"
-import { Blob, Squiggle, Star } from "@/components/doodles/intex"
 import Image from "next/image"
 
 export function Hero() {
@@ -31,38 +30,11 @@ People trust what they can see, feel, and experience. Authenticity isn't a marke
               onClick={() => scrollToId("contact")}
               className="rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground transition-transform duration-200 group-hover:scale-105"
             >
-              It starts with hello! ✦
+              It starts with hello!
             </button>
           
 
-            {/* Sparkles: two clusters (upper-right & lower-left), 3 each */}
-            <span className="pointer-events-none">
-              {/* Upper-right cluster */}
-              <span style={{ transitionDelay: '0ms' }} className="absolute -right-8 -top-6 h-4 w-4 text-orange opacity-0 scale-75 transform transition-all duration-300 group-hover:opacity-100 group-hover:scale-110">
-                <Star aria-hidden="true" className="h-4 w-4" />
-              </span>
-
-              <span style={{ transitionDelay: '70ms' }} className="absolute -right-2 -top-10 h-5 w-5 text-primary opacity-0 scale-75 transform transition-all duration-300 group-hover:opacity-100 group-hover:scale-125">
-                <Star aria-hidden="true" className="h-5 w-5" />
-              </span>
-
-              <span style={{ transitionDelay: '120ms' }} className="absolute -right-14 -top-2 h-3 w-3 text-pink opacity-0 scale-75 transform transition-all duration-300 group-hover:opacity-100 group-hover:scale-125">
-                <Star aria-hidden="true" className="h-3 w-3" />
-              </span>
-
-              {/* Lower-left cluster */}
-              <span style={{ transitionDelay: '40ms' }} className="absolute -left-8 -bottom-6 h-4 w-4 text-orange opacity-0 scale-75 transform transition-all duration-300 group-hover:opacity-100 group-hover:scale-110">
-                <Star aria-hidden="true" className="h-4 w-4" />
-              </span>
-
-              <span style={{ transitionDelay: '90ms' }} className="absolute -left-2 -bottom-10 h-5 w-5 text-primary opacity-0 scale-75 transform transition-all duration-300 group-hover:opacity-100 group-hover:scale-125">
-                <Star aria-hidden="true" className="h-5 w-5" />
-              </span>
-
-              <span style={{ transitionDelay: '140ms' }} className="absolute -left-14 -bottom-2 h-3 w-3 text-pink opacity-0 scale-75 transform transition-all duration-300 group-hover:opacity-100 group-hover:scale-125">
-                <Star aria-hidden="true" className="h-3 w-3" />
-              </span>
-            </span>
+            
           </div>
         </div>
         </div>

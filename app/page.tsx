@@ -12,7 +12,7 @@ export default function Page() {
       <SiteHeader />
 
       <main className="relative overflow-hidden">
-        <BackgroundDecor />
+        {/* <BackgroundDecor /> */}
 
         <Hero />
         <Philosophy />
