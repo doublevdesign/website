@@ -155,33 +155,20 @@ export function Projects() {
 
   return (
   <>
-    <section id="work" className="relative px-6 py-24 md:py-32 overflow-hidden">
+    <section
+  id="work"
+  className="relative overflow-hidden bg-background px-6 py-24 md:py-32"
+>
       <div className="relative mx-auto max-w-6xl z-10">
-        <div className="grid items-start gap-10 md:grid-cols-12">
-          
-          {/* LEFT: TEXT */}
-          <div className="md:col-span-7">
-                   <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-7xl">
-                      Selected Work
-                    </h2>
+       <div>
+  <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-9xl">
+    selected work
+  </h2>
 
-                    <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground text-pretty">
-                      Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
-                    </p>
-       
-        {/* RIGHT: IMAGE (hidden on mobile)
-          <div className="hidden md:flex md:col-span-5 items-start justify-end">
-            <div className="relative w-full max-w-sm aspect-square">
-              <Image
-                src="/laptop-lady.png"
-                alt="Decorative project visual"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div> */}
-          </div>
-        </div>
+  <p className="mt-4 max-w-3xl font-medium text-lg leading-relaxed text-foreground/90 text-pretty">
+    Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
+  </p>
+</div>
 
 
         {/* CAROUSEL */}
