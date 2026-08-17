@@ -17,7 +17,7 @@ export default function Page() {
         <Hero />
         <Philosophy />
         <Projects />
-        <Statement />
+        {/* <Statement /> */}
         <ContactFooter />
       </main>
     </>

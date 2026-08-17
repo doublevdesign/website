@@ -56,9 +56,8 @@ export default function RootLayout({
       className={`${azeretMono.variable} ${alfaSlabOne.variable} bg-background`}
     >
       <body className="font-sans antialiased">
-        <SmoothScroll>
+        {/* SmoothScroll temporarily bypassed — rendering children directly */}
         {children}
-        </SmoothScroll>
        
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

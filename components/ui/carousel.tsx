@@ -19,6 +19,8 @@ export function useCarousel() {
     loop: true,
     align: "center",
     skipSnaps: false,
+    containScroll: "trimSnaps",
+    slidesToScroll: 1,
   })
   return { emblaRef, api }
 }
@@ -66,7 +68,7 @@ export function CarouselContent({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("embla__container flex gap-6 md:gap-8 px-8", className)}
+      className={cn("embla__container flex gap-4 md:gap-6 px-6", className)}
       
       {...props}
     >

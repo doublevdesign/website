@@ -13,7 +13,7 @@ export function ContactFooter() {
   }
 
   return (
-    <footer id="contact" className="ppx-6 pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: '#E7AAC0' }}>
+    <footer id="contact" className="ppx-6 pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: 'rgb(208, 34, 0))' }}>
       <div className="mx-auto max-w-3xl">
         <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-7xl">
           let&apos;s talk.

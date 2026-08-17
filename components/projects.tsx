@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import {
   Carousel,
   CarouselContent,
@@ -46,6 +46,7 @@ const projects: Project[] = [
         "/projects/project-two-a.png",
         "/projects/project-two-b.png",
         "/projects/project-two-c.png",
+      
       ],
     },
   },
@@ -80,8 +81,7 @@ const projects: Project[] = [
       gallery: [
         "/projects/project-three.png",
         "/projects/project-three-a.png",
-        "/projects/project-three-b.png",
-        "/projects/project-three-c.png",
+        
       ],
     },
   },
@@ -113,12 +113,117 @@ export function Projects() {
   const pointerStart = useRef({ x: 0, y: 0 })
 
   
+  const contentRef = useRef<HTMLDivElement | null>(null)
+
   const openProject = (project: Project) => {
   setSelectedProject(project)
   setGalleryIndex(0)
   const idx = projects.findIndex((p) => p.title === project.title)
   setCurrentIndex(idx)
   }
+
+  const modalCleanupRef = useRef<null | (() => void)>(null)
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    // TEST FLAG: set to true to disable adding the global wheel/touch handlers
+    // while you test whether those handlers are blocking native scrolling.
+    // Set back to false when done testing.
+    const DISABLE_GLOBAL_SCROLL_HANDLERS = false
+
+    // If modal opens and cleanup isn't set, set fixed body and listeners
+    if (selectedProject && !modalCleanupRef.current) {
+      // Lock background scroll while modal is open without changing layout
+      // positioning to avoid visual jump on open/close. Use `overflow: hidden`
+      // on body/html so scroll stays in place.
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+
+      const wheelHandler = (e: WheelEvent) => {
+        const el = contentRef.current
+        if (!el) {
+          e.preventDefault()
+          return
+        }
+        // Allow wheel events that originate anywhere inside the modal
+        // so the modal's native scroll container can handle them. If the
+        // event is outside the dialog, prevent background scrolling.
+        const dialog = document.querySelector('[role="dialog"]')
+        const inDialog = Boolean(dialog && dialog.contains(e.target as Node))
+        if (!inDialog) {
+          e.preventDefault()
+          return
+        }
+
+        const delta = e.deltaY
+        const atTop = el.scrollTop === 0
+        const atBottom = el.scrollHeight - el.clientHeight - el.scrollTop <= 1
+
+        if ((delta < 0 && atTop) || (delta > 0 && atBottom)) {
+          e.preventDefault()
+        }
+      }
+
+      let touchStartY = 0
+      const touchStart = (e: TouchEvent) => {
+        touchStartY = e.touches[0].clientY
+      }
+
+      const touchMove = (e: TouchEvent) => {
+        const el = contentRef.current
+        if (!el) {
+          e.preventDefault()
+          return
+        }
+        // Mirror the same logic as the wheel handler: allow touch moves
+        // that originate inside the modal dialog so the modal can scroll
+        // natively on touch/trackpad gestures.
+        const dialog = document.querySelector('[role="dialog"]')
+        const inDialog = Boolean(dialog && dialog.contains(e.target as Node))
+        if (!inDialog) {
+          e.preventDefault()
+          return
+        }
+
+        const currentY = e.touches[0].clientY
+        const delta = touchStartY - currentY
+        const atTop = el.scrollTop === 0
+        const atBottom = el.scrollHeight - el.clientHeight - el.scrollTop <= 1
+
+        if ((delta < 0 && atTop) || (delta > 0 && atBottom)) {
+          e.preventDefault()
+        }
+      }
+
+      // diagnostic logging removed
+
+      if (!DISABLE_GLOBAL_SCROLL_HANDLERS) {
+        document.addEventListener('wheel', wheelHandler, { passive: false })
+        document.addEventListener('touchstart', touchStart, { passive: true })
+        document.addEventListener('touchmove', touchMove, { passive: false })
+      }
+
+      
+
+      modalCleanupRef.current = () => {
+        document.removeEventListener('wheel', wheelHandler)
+        document.removeEventListener('touchstart', touchStart)
+        document.removeEventListener('touchmove', touchMove)
+
+        document.body.style.overflow = ''
+        document.documentElement.style.overflow = ''
+      }
+    }
+
+    // If modal closed and cleanup exists, run it
+    if (!selectedProject && modalCleanupRef.current) {
+      modalCleanupRef.current()
+      modalCleanupRef.current = null
+    }
+  }, [selectedProject])
+
+  
 
   const closeProject = () => {
     setSelectedProject(null)
@@ -156,126 +261,142 @@ export function Projects() {
   return (
   <>
     <section
-  id="work"
-  className="relative overflow-hidden bg-background px-6 py-24 md:py-32"
->
-      <div className="relative mx-auto max-w-6xl z-10">
+      id="work"
+      className="relative overflow-hidden bg-foreground py-24 md:py-32"
+    >
+      <div className="relative mx-auto max-w-6xl px-6 z-10">
        <div>
-  <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-9xl">
-    selected work
-  </h2>
+            <h2 className="font-heading text-5xl text-background text-balance sm:text-6xl md:text-9xl">
+              selected work
+            </h2>
 
-  <p className="mt-4 max-w-3xl font-medium text-lg leading-relaxed text-foreground/90 text-pretty">
-    Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
-  </p>
-</div>
-
+          <p className="mt-4 max-w-3xl font-medium text-lg leading-relaxed text-background text-pretty">
+            Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
+          </p>
+        </div>
+        </div>
 
         {/* CAROUSEL */}
-        <div className="relative mt-14 w-full">
+        <div className="mx-auto mt-14 max-w-[1400px] px-6">
          <CarouselContext.Provider value={{ api }}>
         <div className="group relative">
           <Carousel emblaRef={emblaRef}>
               <CarouselContent>
-                {projects.map((project) => (
-                  <CarouselItem
-                    key={project.title}
-                     className="basis-[67.5%] md:basis-[47%] lg:basis-[38%]"
-                  >
-                    <article
-                  className={`group relative cursor-pointer flex w-full flex-col overflow-hidden transition-transform duration-300 transform-gpu hover: hover:z-10 transition-transform duration-500 delay-150 ${
-                    scrollIndex === projects.indexOf(project) 
-                      ? 'opacity-100 hover:scale-[1.02]' 
-                      : 'opacity-100 scale-96 hover:scale-100'
-                      
-                  }`}role="button"
-                      tabIndex={0}
-                      onClick={() => openProject(project)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" || e.key === " ") openProject(project)
-                      
-                      }}
-                    ><div className="mt-5" />
-                      {/* IMAGE */}
-                      <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
-                        <Image
-                          src={project.image}
-                          alt={`${project.title} project`}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
+                {projects.map((project) => {
+                  const isActive = scrollIndex === projects.indexOf(project)
 
-                        {scrollIndex === projects.indexOf(project) && (
-                        <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                          <span className="rounded-full bg-background/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-foreground shadow-sm">
-                            View details
-                          </span>
+                  return (
+
+                    
+                    <CarouselItem
+                      key={project.title}
+                      className="basis-[67.5%] md:basis-[47%] lg:basis-[38%]"
+                    >
+                      <article
+                        className="group relative flex w-full cursor-pointer flex-col opacity-100 hover:z-10"
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => openProject(project)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") openProject(project)
+                        }}
+                      >
+                        <div
+                          className={`flex w-full flex-col transition-transform duration-500 delay-150 transform-gpu will-change-transform ${
+                            isActive
+                              ? "scale-95 hover:scale-100"
+                              : "scale-95 hover:scale-98"
+                          }`}
+                        >
+
+                            <span className="mt-5 text-center text-xs font-semibold uppercase tracking-widest text-background/90">
+                            {project.tag}
+                          </span> 
+
+                          <div className="mt-5" />
+                          {/* IMAGE */}
+                          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
+                            <Image
+                              src={project.image}
+                              alt={`${project.title} project`}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+
+                            {isActive && (
+                              <div className="pointer-events-none absolute inset-0 flex items-end justify-center p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                {/* <span className="rounded-full bg-background/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-foreground shadow-sm">
+                                  View details
+                                </span> */}
+                              </div>
+                            )}
+                          </div>
+
+                          {/* <span className="mt-5 text-center text-xs font-semibold uppercase tracking-widest text-primary">
+                            {project.tag}
+                          </span> */}
+
+                          {/* <h3 className="mt-2 font-heading text-3xl text-foreground">
+                            {project.title}
+                          </h3> */}
+
+                          {/* <p className="mt-2 text-base leading-relaxed text-muted-foreground text-pretty">
+                            {project.tagline}
+                          </p> */}
                         </div>
-                      )}
-                      </div>
-
-                      <span className="mt-5 text-xs font-semibold uppercase tracking-widest text-primary">
-                        {project.tag}
-                      </span>
-
-                      <h3 className="mt-2 font-heading text-3xl text-foreground">
-                        {project.title}
-                      </h3>
-
-                      <p className="mt-2 text-base leading-relaxed text-muted-foreground text-pretty">
-                        {project.tagline}
-                      </p>
-                    </article>
-                  </CarouselItem>
-                ))}
+                      </article>
+                    </CarouselItem>
+                  )
+                })}
               </CarouselContent>
-                {/* ARROWS */}
-          <div className="pointer-events-none absolute inset-0 z-20">
-{/* LEFT BUTTON */}
-<button
-  onClick={() => api?.scrollPrev()}
-  className="
-    pointer-events-auto
-    absolute left-1/2 top-[40%]
-    -translate-x-1/2 -translate-y-1/2
-    -ml-57
-    text-5xl md:text-6xl
-    text-black
-    flex items-center justify-center
-    opacity-0 group-hover:opacity-100
-    transition-all duration-500 delay-250
-    hover:text-red-600 hover:scale-125
-  "
->
-  ‹
-</button>
+               
+               
+               {/* ARROWS */}
+<div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-between px-2 md:px-4">
 
-{/* RIGHT BUTTON */}
-<button
-  onClick={() => api?.scrollNext()}
-  className="
-    pointer-events-auto
-    absolute left-1/2 top-[40%]
-    -translate-x-1/2 -translate-y-1/2
-    ml-57
-    text-5xl md:text-6xl
-    text-black
-    flex items-center justify-center
-    opacity-0 group-hover:opacity-100
-    transition-all duration-500 delay-250
-    hover:text-red-600 hover:scale-125
-  "
->
-  ›
-</button>
-          </div>  
+  {/* LEFT BUTTON */}
+  <button
+    onClick={() => api?.scrollPrev()}
+    className="
+      pointer-events-auto
+      flex h-12 w-12 md:h-14 md:w-14
+      items-center justify-center
+      rounded-full bg-white
+      text-2xl md:text-3xl text-black
+      shadow-md
+      opacity-0 group-hover:opacity-100
+      transition-all duration-500 delay-250
+      hover:scale-110
+    "
+  >
+    ‹
+  </button>
 
+  {/* RIGHT BUTTON */}
+  <button
+    onClick={() => api?.scrollNext()}
+    className="
+      pointer-events-auto
+      flex h-12 w-12 md:h-14 md:w-14
+      items-center justify-center
+      rounded-full bg-white
+      text-2xl md:text-3xl text-black
+      shadow-md
+      opacity-0 group-hover:opacity-100
+      transition-all duration-500 delay-250
+      hover:scale-110
+    "
+  >
+    ›
+  </button>
+</div>
             </Carousel>
          </div>
           </CarouselContext.Provider>
         </div>
-      </div>
+      
+   
     </section>
 
     {/* MODAL OUTSIDE SECTION (IMPORTANT) */}
@@ -288,7 +409,7 @@ export function Projects() {
           if (e.target === e.currentTarget) closeProject()
         }}
       >
-        <div className="relative mx-auto flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-card p-4 sm:p-6 shadow-2xl">
+        <div className="relative mx-auto flex h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-card p-4 sm:p-6 shadow-2xl">
 
           <button
             className="mb-4 self-end rounded-full border border-border bg-background px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm text-foreground transition hover:bg-muted"
@@ -297,8 +418,8 @@ export function Projects() {
             Close
           </button>
 
-          <div className="grid gap-4 sm:gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
+          <div className="grid gap-4 sm:gap-6 lg:grid-cols-[1.05fr_0.95fr] grid-rows-[minmax(0,1fr)] flex-1 min-h-0">
+            <div className="relative aspect-[4/5] lg:aspect-[4/5] min-h-0 overflow-hidden rounded-3xl bg-muted">
               <Image
                 src={selectedProject.details.gallery[galleryIndex]}
                 alt={`${selectedProject.title} image ${galleryIndex + 1}`}
@@ -322,32 +443,33 @@ export function Projects() {
               </button>
             </div>
 
-            <div className="flex flex-col gap-3 sm:gap-4 overflow-y-auto pr-2">
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                {selectedProject.tag}
-              </span>
+            <div className="flex flex-col gap-3 sm:gap-4 pr-2 min-h-0 overflow-hidden">
+              <div ref={contentRef} className="min-h-0 flex-1 overflow-y-auto pr-2">
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  {selectedProject.tag}
+                </span>
 
-              <h3 className="text-2xl sm:text-4xl font-heading text-foreground">
-                {selectedProject.title}
-              </h3>
+                <h3 className="text-2xl sm:text-4xl font-heading text-foreground">
+                  {selectedProject.title}
+                </h3>
 
-          
-              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                {selectedProject.details.overview}
-              </p>
-              
-             {selectedProject.details.more
-              .split("\n\n")
-              .map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-sm sm:text-base leading-relaxed text-muted-foreground mb-4 last:mb-0"
-                >
-                  {paragraph}
+                <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+                  {selectedProject.details.overview}
                 </p>
-              ))}
 
-              <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
+                {selectedProject.details.more
+                  .split("\n\n")
+                  .map((paragraph, i) => (
+                    <p
+                      key={i}
+                      className="text-sm sm:text-base leading-relaxed text-muted-foreground mb-4 last:mb-0"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+              </div>
+
+              <div className="pt-4 border-t border-border flex items-center justify-between bg-card shrink-0">
                 <button onClick={prevProject} className="text-sm text-muted-foreground hover:text-foreground">
                   ← Previous Project
                 </button>

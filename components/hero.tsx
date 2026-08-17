@@ -39,13 +39,13 @@ People trust what they can see, feel, and experience. Authenticity isn't a marke
         </div>
         </div>
         <div className="flex justify-center">
-  <div className="group relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-none rotate-1">
+  <div className="group relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-none">
 
-   <div className="absolute -right-6 top-8 z-0 text-5xl opacity-0 group-hover:opacity-100 group-hover:animate-[float_2.5s_ease-in-out_infinite] transition-all duration-500 group-hover:translate-x-6 group-hover:-translate-y-2 group-hover:rotate-12">
+   {/* <div className="absolute -right-6 top-8 z-0 text-5xl opacity-0 group-hover:opacity-100 group-hover:animate-[float_2.5s_ease-in-out_infinite] transition-all duration-500 group-hover:translate-x-6 group-hover:-translate-y-2 group-hover:rotate-12">
   👀
-</div>
+</div> */}
 
-    <div className="relative z-10 overflow-hidden rounded-3xl shadow-xl">
+    <div className="relative z-10 overflow-hidden rounded-2xl shadow-xl">
       <Image
         src="/face-pic.png"
         alt="Portrait"

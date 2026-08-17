@@ -52,7 +52,7 @@
   color-scheme: light;
   --background: oklch(0.995 0.003 85);
   --background-end: oklch(97.08% 0.00847 84.494);
-  --foreground: oklch(0.26 0.012 350);
+  --foreground: oklch(20.135% 0.00748 345.917);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.26 0.012 350);
   --popover: oklch(1 0 0);
@@ -70,7 +70,7 @@
   --input: oklch(0.9 0.008 85);
   --ring: oklch(0.55 0.21 32);
   --orange: oklch(0.68 0.16 55);
-  --pink: oklch(0.82 0.08 350);
+  --pink: oklch(80.631% 0.11322 351.454);
   --chart-1: oklch(0.55 0.21 32);
   --chart-2: oklch(0.68 0.16 55);
   --chart-3: oklch(0.82 0.08 350);
