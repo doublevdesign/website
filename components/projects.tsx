@@ -13,6 +13,9 @@ import {
 import Image from "next/image"
 import { motion } from "framer-motion"
 
+import { Caveat } from "next/font/google"
+const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"] })
+
 type Project = {
   title: string
   image: string
@@ -247,11 +250,12 @@ export function Projects() {
                           transition={{ duration: 0.5, ease: "easeOut" }}
                         >
 
-                            <div className="mt-2 sm:mt-5 mb-3 sm:mb-4 flex h-8 sm:h-10 items-center justify-center px-2">
-                          <span className="text-center text-[11px] sm:text-xs font-semibold uppercase tracking-wide sm:tracking-widest leading-tight text-background/90">
-                            {project.tag}
-                          </span>
-                            </div>
+                                <div className="mt-2 sm:mt-5 mb-3 sm:mb-4 flex h-8 sm:h-10 items-center justify-center px-2">
+                                  <span className="rounded-full border border-background/20 bg-transparent px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-background">
+                                    {project.tag}
+                                  </span>
+                                </div>
+
                           {/* IMAGE */}
                           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
                             <Image
