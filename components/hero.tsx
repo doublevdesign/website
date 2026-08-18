@@ -22,7 +22,7 @@ export function Hero() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="mb-6 inline-block border-l-4 border-orange pl-3 text-sm font-semibold uppercase tracking-widest text-background/90">
+          <p className="mb-6 inline-block border-l-4 border-primary pl-3 text-sm font-semibold uppercase tracking-widest text-background/90">
             Strategic Design
           </p>
           <h1 className="group font-heading text-6xl leading-[0.95] text-background/90 text-balance sm:text-7xl md:text-8xl lg:text-9xl">

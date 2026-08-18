@@ -5,7 +5,7 @@ import { scrollToId } from "@/lib/scroll"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md px-6">
+    <header className="sticky top-0 z-50 bg-background/70 backdrop-blur-md px-6">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between py-6">
         <a
           href="#top"
@@ -20,7 +20,7 @@ export function SiteHeader() {
             alt="Logo"
             width={280}
             height={96}
-            className="h-20 w-auto transition-opacity hover:opacity-80"
+            className="h-14 w-auto transition-opacity hover:opacity-80"
             priority
           />
         </a>
