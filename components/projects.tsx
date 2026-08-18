@@ -247,11 +247,11 @@ export function Projects() {
                           transition={{ duration: 0.5, ease: "easeOut" }}
                         >
 
-                            <span className="mt-5 text-center text-xs font-semibold uppercase tracking-widest text-background/90">
+                            <div className="mt-2 sm:mt-5 mb-3 sm:mb-4 flex h-8 sm:h-10 items-center justify-center px-2">
+                          <span className="text-center text-[11px] sm:text-xs font-semibold uppercase tracking-wide sm:tracking-widest leading-tight text-background/90">
                             {project.tag}
-                          </span> 
-
-                          <div className="mt-5" />
+                          </span>
+                            </div>
                           {/* IMAGE */}
                           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
                             <Image
@@ -347,7 +347,7 @@ export function Projects() {
           if (e.target === e.currentTarget) closeProject()
         }}
       >
-        <div className="relative mx-auto flex h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-card p-4 sm:p-6 shadow-2xl">
+          <div className="relative mx-auto flex h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-card p-4 sm:p-6 shadow-2xl">
 
           <button
             className="mb-4 self-end rounded-full border border-border bg-background px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm text-foreground transition hover:bg-muted"
@@ -356,34 +356,36 @@ export function Projects() {
             Close
           </button>
 
-          <div className="grid gap-4 sm:gap-6 md:grid-cols-[1.05fr_0.95fr] grid-rows-[minmax(0,1fr)] flex-1 min-h-0">
-            <div className="relative flex items-center justify-center min-h-0 overflow-hidden rounded-3xl bg-muted">
-              <div className="relative w-full h-full">
-                <Image
-                  src={selectedProject.details.gallery[galleryIndex]}
-                  alt={`${selectedProject.title} image ${galleryIndex + 1}`}
-                  fill
-                  className="object-cover"
-                />
+          {/* Content area: use flex for deterministic sizing (stack on mobile, row on md+) */}
+          <div className="flex-1 min-h-0 overflow-auto">
+            <div className="flex flex-col md:flex-row gap-4 sm:gap-6 h-full min-h-0">
+              <div className="relative w-full aspect-[4/5] md:aspect-auto md:h-full md:basis-[55%] flex-none overflow-hidden rounded-3xl bg-muted">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={selectedProject.details.gallery[galleryIndex]}
+                    alt={`${selectedProject.title} image ${galleryIndex + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                <button
+                  className="pointer-events-auto absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
+                  onClick={showPreviousImage}
+                >
+                  ‹
+                </button>
+
+                <button
+                  className="pointer-events-auto absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
+                  onClick={showNextImage}
+                >
+                  ›
+                </button>
               </div>
 
-              <button
-                className="pointer-events-auto absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
-                onClick={showPreviousImage}
-              >
-                ‹
-              </button>
-
-              <button
-                className="pointer-events-auto absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
-                onClick={showNextImage}
-              >
-                ›
-              </button>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 min-h-0 overflow-hidden">
-              <div ref={contentRef} className="min-h-0 flex-1 overflow-y-auto">
+              <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 min-h-0 md:basis-[45%] bg-transparent">
+                <div ref={contentRef} className="min-h-0 flex-1 md:overflow-y-auto overflow-visible">
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary">
                   {selectedProject.tag}
                 </span>
@@ -406,18 +408,20 @@ export function Projects() {
                       {paragraph}
                     </p>
                   ))}
-              </div>
-
-              <div className="pt-4 border-t border-border flex items-center justify-between bg-card shrink-0">
-                <button onClick={prevProject} className="text-sm text-muted-foreground hover:text-foreground">
-                  ← Previous Project
-                </button>
-
-                <button onClick={nextProject} className="text-sm text-muted-foreground hover:text-foreground">
-                  Next Project →
-                </button>
+                </div>
               </div>
             </div>
+          </div>
+
+          {/* Footer controls: always visible at bottom of modal */}
+          <div className="pt-4 flex items-center justify-between bg-card shrink-0">
+            <button onClick={prevProject} className="text-sm text-muted-foreground hover:text-foreground">
+              ← Previous Project
+            </button>
+
+            <button onClick={nextProject} className="text-sm text-muted-foreground hover:text-foreground">
+              Next Project →
+            </button>
           </div>
         </div>
       </div>
