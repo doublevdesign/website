@@ -10,11 +10,16 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[calc(100svh-65px)] items-center overflow-hidden px-6 bg-foreground"
     >
-
-
-<div aria-hidden="true" className="pointer-events-none absolute inset-0"></div>
+      {/* Animated light band overlay - CORRECTED */}
+      <div 
+        aria-hidden="true" 
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div className="absolute inset-0 light-band"></div>
+      </div>
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 py-20 lg:grid-cols-[1fr_400px]">
+
         <motion.div
           className="px-0"
           initial={{ opacity: 0, y: 12 }}
@@ -44,42 +49,37 @@ export function Hero() {
             </div>
           </div>
         </motion.div>
-          <div className="flex justify-center">
-  <div className="group relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-none">
+        
+        <div className="flex justify-center">
+          <div className="group relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-none">
+            <div className="relative z-10">
+              <div className="overflow-hidden rounded-2xl shadow-xl">
+                <Image
+                  src="/face-pic-2.jpeg"
+                  alt="Portrait"
+                  width={400}
+                  height={500}
+                  priority
+                  className="h-auto w-full object-cover"
+                />
+              </div>
 
-   {/* <div className="absolute -right-6 top-8 z-0 text-5xl opacity-0 group-hover:opacity-100 group-hover:animate-[float_2.5s_ease-in-out_infinite] transition-all duration-500 group-hover:translate-x-6 group-hover:-translate-y-2 group-hover:rotate-12">
-  👀
-</div> */}
-
-    <div className="relative z-10">
-  <div className="overflow-hidden rounded-2xl shadow-xl">
-  <Image
-    src="/face-pic-2.jpeg"
-    alt="Portrait"
-    width={400}
-    height={500}
-    priority
-    className="h-auto w-full object-cover"
-  />
-</div>
-
-  <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
-    <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
-      Hi, I'm Vivi (VV).{' '}
-      <button
-        onClick={() => scrollToId('work')}
-        className="underline decoration-2 underline-offset-2 bg-transparent p-0 m-0 cursor-pointer"
-        aria-label="Jump to selected work"
-      >
-        I made this.
-      </button>
-    </p>
-  </div>
-</div>
-</div>
-</div>
+              <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
+                <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
+                  Hi, I'm Vivi (VV).{' '}
+                  <button
+                    onClick={() => scrollToId('work')}
+                    className="underline decoration-2 underline-offset-2 bg-transparent p-0 m-0 cursor-pointer"
+                    aria-label="Jump to selected work"
+                  >
+                    I made this.
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    
     </section>
   )
 }

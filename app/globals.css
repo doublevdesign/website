@@ -148,6 +148,21 @@
   opacity: 1;
 }
 
+/* Animated light band */
+.light-band {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    oklch(28% 0.009 346 / 0.2) 45%,
+    oklch(38.717% 0.0107 349.522 / 0.18) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: drift 10s ease-in-out infinite;
+  filter: blur(60px);
+  z-index: 0;
+}
+
 
 @keyframes feelFloat {
   0% {
@@ -178,4 +193,10 @@
   to {
     transform: translateX(-100%);
   }
+}
+
+@keyframes drift {
+  0%   { transform: translateX(-20%) translateY(0); }
+  50%  { transform: translateX(20%) translateY(-10px); }
+  100% { transform: translateX(-20%) translateY(0); }
 }
