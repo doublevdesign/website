@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel"
 
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 type Project = {
   title: string
@@ -120,6 +121,7 @@ export function Projects() {
   setGalleryIndex(0)
   const idx = projects.findIndex((p) => p.title === project.title)
   setCurrentIndex(idx)
+  
   }
 
   const modalCleanupRef = useRef<null | (() => void)>(null)
@@ -140,77 +142,9 @@ export function Projects() {
       document.body.style.overflow = 'hidden'
       document.documentElement.style.overflow = 'hidden'
 
-      const wheelHandler = (e: WheelEvent) => {
-        const el = contentRef.current
-        if (!el) {
-          e.preventDefault()
-          return
-        }
-        // Allow wheel events that originate anywhere inside the modal
-        // so the modal's native scroll container can handle them. If the
-        // event is outside the dialog, prevent background scrolling.
-        const dialog = document.querySelector('[role="dialog"]')
-        const inDialog = Boolean(dialog && dialog.contains(e.target as Node))
-        if (!inDialog) {
-          e.preventDefault()
-          return
-        }
-
-        const delta = e.deltaY
-        const atTop = el.scrollTop === 0
-        const atBottom = el.scrollHeight - el.clientHeight - el.scrollTop <= 1
-
-        if ((delta < 0 && atTop) || (delta > 0 && atBottom)) {
-          e.preventDefault()
-        }
-      }
-
-      let touchStartY = 0
-      const touchStart = (e: TouchEvent) => {
-        touchStartY = e.touches[0].clientY
-      }
-
-      const touchMove = (e: TouchEvent) => {
-        const el = contentRef.current
-        if (!el) {
-          e.preventDefault()
-          return
-        }
-        // Mirror the same logic as the wheel handler: allow touch moves
-        // that originate inside the modal dialog so the modal can scroll
-        // natively on touch/trackpad gestures.
-        const dialog = document.querySelector('[role="dialog"]')
-        const inDialog = Boolean(dialog && dialog.contains(e.target as Node))
-        if (!inDialog) {
-          e.preventDefault()
-          return
-        }
-
-        const currentY = e.touches[0].clientY
-        const delta = touchStartY - currentY
-        const atTop = el.scrollTop === 0
-        const atBottom = el.scrollHeight - el.clientHeight - el.scrollTop <= 1
-
-        if ((delta < 0 && atTop) || (delta > 0 && atBottom)) {
-          e.preventDefault()
-        }
-      }
-
-      // diagnostic logging removed
-
-      if (!DISABLE_GLOBAL_SCROLL_HANDLERS) {
-        document.addEventListener('wheel', wheelHandler, { passive: false })
-        document.addEventListener('touchstart', touchStart, { passive: true })
-        document.addEventListener('touchmove', touchMove, { passive: false })
-      }
-
-      
-
+      // No custom wheel/touch handlers needed: Lenis will be stopped while
+      // the modal is open and background scroll is locked via overflow.
       modalCleanupRef.current = () => {
-        document.removeEventListener('wheel', wheelHandler)
-        document.removeEventListener('touchstart', touchStart)
-        document.removeEventListener('touchmove', touchMove)
-
         document.body.style.overflow = ''
         document.documentElement.style.overflow = ''
       }
@@ -301,12 +235,16 @@ export function Projects() {
                           if (e.key === "Enter" || e.key === " ") openProject(project)
                         }}
                       >
-                        <div
+                        <motion.div
                           className={`flex w-full flex-col transition-transform duration-500 delay-150 transform-gpu will-change-transform ${
                             isActive
                               ? "scale-95 hover:scale-100"
                               : "scale-95 hover:scale-98"
                           }`}
+                          initial={{ opacity: 0, y: 8 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, amount: 0.2 }}
+                          transition={{ duration: 0.5, ease: "easeOut" }}
                         >
 
                             <span className="mt-5 text-center text-xs font-semibold uppercase tracking-widest text-background/90">
@@ -344,7 +282,7 @@ export function Projects() {
                           {/* <p className="mt-2 text-base leading-relaxed text-muted-foreground text-pretty">
                             {project.tagline}
                           </p> */}
-                        </div>
+                        </motion.div>
                       </article>
                     </CarouselItem>
                   )
@@ -418,15 +356,16 @@ export function Projects() {
             Close
           </button>
 
-          <div className="grid gap-4 sm:gap-6 lg:grid-cols-[1.05fr_0.95fr] grid-rows-[minmax(0,1fr)] flex-1 min-h-0">
-            <div className="relative aspect-[4/5] lg:aspect-[4/5] min-h-0 overflow-hidden rounded-3xl bg-muted">
-              <Image
-                src={selectedProject.details.gallery[galleryIndex]}
-                alt={`${selectedProject.title} image ${galleryIndex + 1}`}
-                width={900}
-                height={1200}
-                className="h-full w-full object-cover"
-              />
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-[1.05fr_0.95fr] grid-rows-[minmax(0,1fr)] flex-1 min-h-0">
+            <div className="relative flex items-center justify-center min-h-0 overflow-hidden rounded-3xl bg-muted">
+              <div className="relative w-full h-full">
+                <Image
+                  src={selectedProject.details.gallery[galleryIndex]}
+                  alt={`${selectedProject.title} image ${galleryIndex + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
               <button
                 className="pointer-events-auto absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
@@ -443,8 +382,8 @@ export function Projects() {
               </button>
             </div>
 
-            <div className="flex flex-col gap-3 sm:gap-4 pr-2 min-h-0 overflow-hidden">
-              <div ref={contentRef} className="min-h-0 flex-1 overflow-y-auto pr-2">
+            <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 min-h-0 overflow-hidden">
+              <div ref={contentRef} className="min-h-0 flex-1 overflow-y-auto">
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary">
                   {selectedProject.tag}
                 </span>
