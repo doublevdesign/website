@@ -63,9 +63,16 @@ export function Hero() {
   />
 </div>
 
- <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
+  <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
     <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
-      Hi, I'm Vivi (VV). <span className="underline decoration-2 underline-offset-2"> I made this.</span>
+      Hi, I'm Vivi (VV).{' '}
+      <button
+        onClick={() => scrollToId('work')}
+        className="underline decoration-2 underline-offset-2 bg-transparent p-0 m-0 cursor-pointer"
+        aria-label="Jump to selected work"
+      >
+        I made this.
+      </button>
     </p>
   </div>
 </div>

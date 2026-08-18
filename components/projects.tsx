@@ -84,13 +84,12 @@ more:"Beyond the identity, I helped bring Auswendig to life across its first pub
     },
   },
   {
-    title: "clim@ festival 23-26",
+    title: "clim@ festival 2023-26",
     image: "/projects/project-four.png",
     tag: "Festival Branding",
     details: {
-      overview: "Adapting a visual system to marketing materials across different channels with different audiences, while maintaining a cohesive and recognizable brand identity.",
-      more:
-        "",
+      overview: "For three consecutive years, I have brought the clim@ festival’s existing visual identity to life across a wide range of print and digital materials. Working from a brand identity and design manual created by an external designer, I adapted and extended the visual language across everything from posters, flyers and print ads to merchandise, DOOH-advertising, social media content and Google Ads.",
+      more: "As the festival’s creative direction evolved, I took on responsibility for maintaining and developing the brand across its many touchpoints, ensuring that everything felt part of the same visual world. I worked closely with the festival organisers and the wider team, including social media and event planning, to translate their ideas and content into clear, engaging communication throughout the campaign.",
       gallery: [
         "/projects/project-four.png",
         "/projects/project-four-a.png",
