@@ -46,7 +46,7 @@ export function ContactFooter() {
         </p>
 
         {submitted ? (
-          <div className="mt-10 rounded-xl border-l-4 border-foreground bg-white p-8">
+          <div className="mt-10 rounded-xl bordborderer-l-4 -foreground bg-white p-8">
             <p className="font-heading text-2xl text-foreground">
               message sent.
             </p>
@@ -202,7 +202,8 @@ function FormField({
   const isFocused = focusedField === id
 
   const inputClasses =
-  "rounded-md border border-foreground/20 bg-white px-4 py-3 text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+  "rounded-md border-2 border-foreground/20 bg-white px-4 py-3 text-foreground outline-none transition-colors focus:border-primary"
+  
   return (
     <div className="flex flex-col gap-2">
       <label

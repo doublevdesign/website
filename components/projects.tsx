@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/carousel"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 import { Caveat } from "next/font/google"
 const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"] })
@@ -19,7 +19,6 @@ const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"] })
 type Project = {
   title: string
   image: string
-  tagline: string
   tag: string
   details: {
     overview: string
@@ -33,8 +32,6 @@ const projects: Project[] = [
   {
     title: "Graz City Council election",
     image: "/projects/project-two.png",
-    tagline:
-      "Delivering a high-impact campaign under strict Austrian political advertising laws that limit creative freedom and media channels.",
     tag: "political communications",
     details: {
       overview :"Working within strict Austrian political advertising regulations and an established identity system, the challenge was to create a campaign that remained consistent while staying flexible across multiple formats and contexts." ,     
@@ -57,18 +54,17 @@ const projects: Project[] = [
     {
     title: "Auswendig Visual Identity",
     image: "/projects/project-one.png",
-    tagline:
-      "Standing out against competitors in a crowded app market with a clean and unique visual identity.",
     tag: "Branding and UI Design",
     details: {
       overview:
-        "A full identity system built to feel modern, tactile, and unmistakably memorable across packaging, web, and social.",
-      more:
-        "This project included exploration of color, motion, and messaging to position Auswendig as a premium but playful brand.",
+"The developer came to me with a great app idea and a name, but the visual identity was still waiting to be defined. I turned that starting point into a cohesive brand, creating the logo, colour palette, and light and dark theme variations for the app. I also developed a set of custom icons to give the interface its own visual language.",
+      
+more:"Beyond the identity, I helped bring Auswendig to life across its first public touchpoints. I designed the Google Play Store visuals and supported the English-to-German translation of both the app and its Play Store description, making sure the visual and written communication felt consistent throughout.",
       gallery: [
         "/projects/project-one.png",
-        "/projects/project-one-a.png",
+         "/projects/project-one-a.png",
         "/projects/project-one-b.png",
+        "/projects/project-one-b0.png",
         "/projects/project-one-c.png",
       ],
     },
@@ -76,8 +72,6 @@ const projects: Project[] = [
   {
     title: "Non-Profit Fundraising",
     image: "/projects/project-three.png",
-    tagline:
-      "Refreshing a long-standing non-profit's fundraising communications without losing the trust and familiarity built over time.",
     tag: "B2B Fundraising",
     details: {
       overview: "The challenge was to create fundraising materials that felt current and engaging while respecting an established visual identity that had seen little development in recent years. Rather than replacing what already existed, the focus was on identifying the elements that still worked and building a more contemporary visual language around them.",
@@ -92,7 +86,6 @@ const projects: Project[] = [
   {
     title: "clim@ festival 23-26",
     image: "/projects/project-four.png",
-    tagline: "Challenge: Adapting a visual system to materials across different channels and audiences, while maintaining a cohesive and recognizable brand identity.",
     tag: "Festival Branding",
     details: {
       overview: "Adapting a visual system to marketing materials across different channels with different audiences, while maintaining a cohesive and recognizable brand identity.",
@@ -207,7 +200,7 @@ export function Projects() {
               selected work
             </h2>
 
-          <p className="mt-4 max-w-3xl font-medium text-lg leading-relaxed text-background text-pretty">
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-background text-pretty">
             Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
           </p>
         </div>
@@ -283,9 +276,7 @@ export function Projects() {
                             {project.title}
                           </h3> */}
 
-                          {/* <p className="mt-2 text-base leading-relaxed text-muted-foreground text-pretty">
-                            {project.tagline}
-                          </p> */}
+                          
                         </motion.div>
                       </article>
                     </CarouselItem>
@@ -342,94 +333,110 @@ export function Projects() {
     </section>
 
     {/* MODAL OUTSIDE SECTION (IMPORTANT) */}
-    {selectedProject ? (
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 p-6 backdrop-blur-sm"
-        role="dialog"
-        aria-modal="true"
-        onClick={(e) => {
-          if (e.target === e.currentTarget) closeProject()
-        }}
-      >
-          <div className="relative mx-auto flex h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-card p-4 sm:p-6 shadow-2xl">
-
-          <button
-            className="mb-4 self-end rounded-full border border-border bg-background px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm text-foreground transition hover:bg-muted"
-            onClick={closeProject}
+    <AnimatePresence>
+      {selectedProject && (
+        <motion.div
+          key="project-modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.22 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(26,26,26,0.28)] p-6 backdrop-blur-md"
+          role="dialog"
+          aria-modal="true"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeProject()
+          }}
+        >
+          <motion.div
+            initial={{ y: 8, opacity: 0, scale: 0.995 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 8, opacity: 0, scale: 0.995 }}
+            transition={{ duration: 0.26, ease: "easeOut" }}
+            className="relative mx-auto flex h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-card p-4 sm:p-6 shadow-2xl"
           >
-            Close
-          </button>
 
-          {/* Content area: use flex for deterministic sizing (stack on mobile, row on md+) */}
-          <div className="flex-1 min-h-0 overflow-auto">
-            <div className="flex flex-col md:flex-row gap-4 sm:gap-6 h-full min-h-0">
-              <div className="relative w-full aspect-[4/5] md:aspect-auto md:h-full md:basis-[55%] flex-none overflow-hidden rounded-3xl bg-muted">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={selectedProject.details.gallery[galleryIndex]}
-                    alt={`${selectedProject.title} image ${galleryIndex + 1}`}
-                    fill
-                    className="object-cover"
-                  />
+            <button
+              className="mb-4 self-end rounded-full border border-border bg-background px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm text-foreground transition hover:bg-muted"
+              onClick={closeProject}
+            >
+              Close
+            </button>
+
+            {/* Content area: use flex for deterministic sizing (stack on mobile, row on md+) */}
+            <div className="flex-1 min-h-0 overflow-auto">
+              <div className="flex flex-col md:flex-row gap-4 sm:gap-6 h-full min-h-0">
+                <div className="relative w-full aspect-[4/5] md:aspect-auto md:h-full md:basis-[55%] flex-none overflow-hidden rounded-3xl bg-muted">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={selectedProject.details.gallery[galleryIndex]}
+                      alt={`${selectedProject.title} image ${galleryIndex + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <button
+                    className="pointer-events-auto absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
+                    onClick={showPreviousImage}
+                  >
+                    ‹
+                  </button>
+
+                  <button
+                    className="pointer-events-auto absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
+                    onClick={showNextImage}
+                  >
+                    ›
+                  </button>
                 </div>
 
-                <button
-                  className="pointer-events-auto absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
-                  onClick={showPreviousImage}
-                >
-                  ‹
-                </button>
+                <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 min-h-0 md:basis-[45%] bg-transparent">
+                  <div ref={contentRef} className="min-h-0 flex-1 md:overflow-y-auto overflow-visible">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                    {selectedProject.tag}
+                  </span>
 
-                <button
-                  className="pointer-events-auto absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/80 p-3 text-lg text-foreground transition hover:bg-background"
-                  onClick={showNextImage}
-                >
-                  ›
-                </button>
-              </div>
+                  <h3 className="text-2xl sm:text-4xl font-heading text-foreground">
+                    {selectedProject.title}
+                  </h3>
 
-              <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 min-h-0 md:basis-[45%] bg-transparent">
-                <div ref={contentRef} className="min-h-0 flex-1 md:overflow-y-auto overflow-visible">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                  {selectedProject.tag}
-                </span>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                    {selectedProject.details.overview}
+                  </p>
 
-                <h3 className="text-2xl sm:text-4xl font-heading text-foreground">
-                  {selectedProject.title}
-                </h3>
-
-                <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                  {selectedProject.details.overview}
-                </p>
-
-                {selectedProject.details.more
-                  .split("\n\n")
-                  .map((paragraph, i) => (
-                    <p
-                      key={i}
-                      className="text-sm sm:text-base leading-relaxed text-muted-foreground mb-4 last:mb-0"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+                  {selectedProject.details.more
+                    .split("\n\n")
+                    .map((paragraph, i) => {
+                      const firstMoreClass = i === 0 ? "mt-3 " : ""
+                      return (
+                        <p
+                          key={i}
+                          className={`${firstMoreClass}text-sm sm:text-base leading-relaxed text-muted-foreground mb-4 last:mb-0`}
+                        >
+                          {paragraph}
+                        </p>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Footer controls: always visible at bottom of modal */}
-          <div className="pt-4 flex items-center justify-between bg-card shrink-0">
-            <button onClick={prevProject} className="text-sm text-muted-foreground hover:text-foreground">
-              ← Previous Project
-            </button>
+            {/* Footer controls: always visible at bottom of modal */}
+            <div className="pt-4 flex items-center justify-between bg-card shrink-0">
+              <button onClick={prevProject} className="text-sm text-muted-foreground hover:text-foreground">
+                ← Previous Project
+              </button>
 
-            <button onClick={nextProject} className="text-sm text-muted-foreground hover:text-foreground">
-              Next Project →
-            </button>
-          </div>
-        </div>
-      </div>
-    ) : null}
+              <button onClick={nextProject} className="text-sm text-muted-foreground hover:text-foreground">
+                Next Project →
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   </>
 )
 }

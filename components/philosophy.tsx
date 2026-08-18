@@ -4,7 +4,7 @@ import StrategyHeading from "@/components/strategyheading";
 
 export function Philosophy() {
   return (
-    <section id="about" className="relative z-20 px-6 pt-12 pb-24 md:pt-16 md:pb-32">
+    <section id="about" className="relative z-20 px-6 pt-6 pb-24 md:pt-16 md:pb-16">
      <div className="mx-auto max-w-6xl">
     
     
@@ -19,11 +19,11 @@ export function Philosophy() {
     {/* Text */}
     <div className="md:col-span-7">
       <div className="max-w-xl">
-        <p className="text-lg leading-relaxed text-background/90 text-pretty">
+        <p className="text-lg leading-relaxed text-background text-pretty">
           Chances are: you're busy. You don't need more disconnected ideas, random visuals, or marketing that doesn't quite know where it's going. You need a clear direction and a brand that helps people understand what makes your business unique.
         </p>
 
-        <p className="mt-6 text-lg leading-relaxed text-background/90 text-pretty">
+        <p className="mt-6 text-lg leading-relaxed text-background text-pretty">
           Together, we turn ideas into a clear identity that feels authentic,
           works in the real world, and gives your brand the confidence to grow.
         </p>

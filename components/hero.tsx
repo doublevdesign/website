@@ -16,20 +16,20 @@ export function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 py-20 lg:grid-cols-[1fr_400px]">
         <motion.div
-          className="px-6 md:px-0"
+          className="px-0"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="mb-6 inline-block border-l-4 border-primary pl-3 text-sm font-semibold uppercase tracking-widest text-background/90">
+          <p className="mb-6 inline-block border-l-4 border-primary pl-3 text-sm font-semibold uppercase tracking-widest text-background">
             Strategic Design
           </p>
-          <h1 className="group font-heading text-6xl leading-[0.95] text-background/90 text-balance sm:text-7xl md:text-8xl lg:text-9xl">
+          <h1 className="group font-heading text-6xl leading-[0.95] text-background text-balance sm:text-7xl md:text-8xl lg:text-9xl">
             no <span className="inline-block hum group-hover:animate-hum">buzzwords.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-background/90 text-pretty">
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-background text-pretty">
             People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy — it's what makes a brand memorable. I create visual identities and design systems that give ideas a language people can connect with.
           </p>
 
@@ -52,13 +52,14 @@ export function Hero() {
 </div> */}
 
     <div className="relative z-10">
-  <div className="overflow-hidden">
+  <div className="overflow-hidden rounded-2xl shadow-xl">
   <Image
     src="/face-pic-2.jpeg"
     alt="Portrait"
     width={400}
     height={500}
     priority
+    className="h-auto w-full object-cover"
   />
 </div>
 
@@ -75,4 +76,3 @@ export function Hero() {
     </section>
   )
 }
-
