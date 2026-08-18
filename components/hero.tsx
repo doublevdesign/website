@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[calc(100svh-65px)] items-center overflow-hidden px-6"
+      className="relative flex min-h-[calc(100svh-65px)] items-center overflow-hidden px-6 bg-foreground"
     >
 
 
@@ -22,14 +22,14 @@ export function Hero() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="mb-6 inline-block border-l-4 border-orange pl-3 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+          <p className="mb-6 inline-block border-l-4 border-orange pl-3 text-sm font-semibold uppercase tracking-widest text-background/90">
             Strategic Design
           </p>
-          <h1 className="group font-heading text-6xl leading-[0.95] text-foreground text-balance sm:text-7xl md:text-8xl lg:text-9xl">
+          <h1 className="group font-heading text-6xl leading-[0.95] text-background/90 text-balance sm:text-7xl md:text-8xl lg:text-9xl">
             no <span className="inline-block hum group-hover:animate-hum">buzzwords.</span>
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-foreground/90 text-pretty">
+          <p className="mt-8 max-w-2xl text-lg font-medium leading-relaxed text-background/90 text-pretty">
             People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy — it's what makes a brand memorable. I create visual identities and design systems that give ideas a language people can connect with.
           </p>
 
@@ -51,21 +51,24 @@ export function Hero() {
   👀
 </div> */}
 
-    <div className="relative z-10 overflow-hidden rounded-2xl shadow-xl">
-      <Image
-        src="/face-pic.png"
-        alt="Portrait"
-        width={400}
-        height={500}
-        priority
-        className="h-auto w-full object-cover"
-      />
-    </div>
+    <div className="relative z-10">
+  <div className="overflow-hidden">
+  <Image
+    src="/face-pic-2.jpeg"
+    alt="Portrait"
+    width={400}
+    height={500}
+    priority
+  />
+</div>
 
-    <p className="mt-3 text-center text-sm text-muted-foreground">Hi, I'm <span className="font-semibold text-foreground">Vivi (VV)</span>.
-      I made this.
+ <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
+    <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
+      Hi, I'm Vivi (VV). <span className="underline decoration-2 underline-offset-2"> I made this.</span>
     </p>
   </div>
+</div>
+</div>
 </div>
       </div>
     

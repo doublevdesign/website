@@ -36,11 +36,11 @@ export function Philosophy() {
     
 
         {/* --- CARDS SECTION */}
-<div className="mt-12 md:mt-16 px-6 md:px-0">
-  <div className="grid gap-6 md:grid-cols-3">
+{/* <div className="mt-12 md:mt-16 px-6 md:px-0">
+  <div className="grid gap-6 md:grid-cols-3"> */}
 
     {/* Card 1 */}
-    <div className="flex h-full flex-col rounded-2xl bg-background p-8 ring-1 ring-border">
+    {/* <div className="flex h-full flex-col rounded-2xl bg-background p-8 ring-1 ring-border">
       <div className="flex flex-col gap-y-6">
         <h3 className="font-heading text-xl text-foreground">
           clarity first
@@ -55,10 +55,10 @@ export function Philosophy() {
           Ready when you are!
         </a>
       </div>
-    </div>
+    </div> */}
 
     {/* Card 2 */}
-    <div className="flex h-full flex-col rounded-2xl bg-background p-8 ring-1 ring-border">
+    {/* <div className="flex h-full flex-col rounded-2xl bg-background p-8 ring-1 ring-border">
       <div className="flex flex-col gap-y-6">
         <h3 className="font-heading text-xl text-foreground">
           working with me
@@ -67,10 +67,10 @@ export function Philosophy() {
           Not another textbook theory. Every brand starts as a messy mix of ideas, questions, and possibilities. I help bring clarity to that process, creating identities that feel authentic, intentional, and uniquely yours.
         </p>
       </div>
-    </div>
+    </div> */}
 
     {/* Card 3 */}
-    <div className="flex h-full flex-col rounded-2xl bg-background p-8 ring-1 ring-border">
+    {/* <div className="flex h-full flex-col rounded-2xl bg-background p-8 ring-1 ring-border">
       <div className="flex flex-col gap-y-6">
         <h3 className="font-heading text-xl text-foreground">
           built to last
@@ -82,7 +82,7 @@ export function Philosophy() {
     </div>
 
   </div>
-</div>
+</div> */}
 
       </div>
     </section>
