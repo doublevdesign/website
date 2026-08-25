@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Azeret_Mono, Alfa_Slab_One } from 'next/font/google'
 import './globals.css'
+import { CursorTrail } from "@/components/cursor-trail"
 
 const azeretMono = Azeret_Mono({
   variable: '--font-azeret-mono',
@@ -12,7 +13,6 @@ const alfaSlabOne = Alfa_Slab_One({
   weight: '400',
   subsets: ['latin'],
 })
-
 
 export const metadata: Metadata = {
   title: 'doublevdesign – strategic design',
@@ -55,12 +55,10 @@ export default function RootLayout({
       className={`${azeretMono.variable} ${alfaSlabOne.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        <CursorTrail />
         {children}
-       
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
-    
   )
 }
-
