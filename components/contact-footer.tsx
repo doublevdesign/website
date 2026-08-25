@@ -5,13 +5,41 @@ import { motion } from "framer-motion"
 
 export function ContactFooter() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [showImpressum, setShowImpressum] = useState(false)
   const [focusedField, setFocusedField] = useState<string | null>(null)
   const pointerStart = useRef({ x: 0, y: 0 })
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+    setIsSubmitting(true)
+    setSubmitError(null)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to send message")
+      }
+
+      setSubmitted(true)
+    } catch {
+      setSubmitError("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -81,14 +109,20 @@ export function ContactFooter() {
             />
             <motion.button
               type="submit"
+              disabled={isSubmitting}
               whileHover={{ rotate: -2, scale: 1.05 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
               className="self-start rounded-full px-7 py-3.5 text-base font-semibold text-white"
               style={{ backgroundColor: '#2d1b1f' }}
             >
-              Send
+              {isSubmitting ? "Sending..." : "Send"}
             </motion.button>
+            {submitError && (
+              <p role="alert" className="text-sm text-primary">
+                {submitError}
+              </p>
+            )}
           </form>
         )}
 
