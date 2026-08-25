@@ -24,7 +24,7 @@ export function Philosophy() {
         </p>
 
         <p className="mt-6 text-lg leading-relaxed text-background text-pretty">
-          Together, we turn ideas into a clear identity that feels authentic,
+          Together, we turn ideas into a cohesive identity that feels authentic,
           works in the real world, and gives your brand the confidence to grow.
         </p>
       </div>
