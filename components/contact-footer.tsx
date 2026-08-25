@@ -31,12 +31,17 @@ export function ContactFooter() {
       })
 
       if (!response.ok) {
-        throw new Error("Failed to send message")
+        const result = await response.json().catch(() => null)
+        throw new Error(result?.error || "Failed to send message")
       }
 
       setSubmitted(true)
-    } catch {
-      setSubmitError("Something went wrong. Please try again.")
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
+      )
     } finally {
       setIsSubmitting(false)
     }

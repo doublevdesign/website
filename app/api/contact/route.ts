@@ -5,6 +5,12 @@ export const runtime = "nodejs"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+export function GET() {
+  return NextResponse.json({
+    configured: Boolean(process.env.RESEND_API_KEY),
+  })
+}
+
 export async function POST(req: Request) {
   try {
     if (!process.env.RESEND_API_KEY) {
@@ -24,7 +30,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 })
     }
 
-    const { error } = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Portfolio Contact <hello@doublevdesign.at>", 
       to: "vivi@doublevdesign.at", 
       replyTo: email.trim(),
@@ -34,10 +40,10 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error("Resend failed to send contact email", error)
-      return NextResponse.json({ error: "Failed to send" }, { status: 502 })
+      return NextResponse.json({ error: error.message }, { status: 502 })
     }
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, id: data?.id })
   } catch (err) {
     console.error(err)
     return NextResponse.json({ error: "Failed to send" }, { status: 500 })
