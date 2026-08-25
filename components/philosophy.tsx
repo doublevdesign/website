@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
-import { scrollToId } from "@/lib/scroll"
-import StrategyHeading from "@/components/strategyheading";
+import StrategyHeading from "@/components/strategyheading"
+// import { PhilosophyDecor } from "@/components/philosophy-decor"
 
 export function Philosophy() {
   return (
     <section id="about" className="relative z-20 px-6 pt-6 pb-24 md:pt-16 md:pb-16">
-     <div className="mx-auto max-w-6xl">
+      {/* <PhilosophyDecor /> */}
+      <div className="relative z-10 mx-auto max-w-6xl">
     
     
        <div className="rounded-[2rem] bg-foreground p-8 md:p-10 lg:p-12">

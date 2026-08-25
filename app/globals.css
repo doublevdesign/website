@@ -232,3 +232,96 @@
     animation: none;
   }
 }
+
+@keyframes philosophy-wave-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.philosophy-wave {
+  animation: philosophy-wave-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes philosophy-dot-drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(10px, -16px, 0);
+  }
+}
+
+@keyframes philosophy-dot-drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-14px, 12px, 0);
+  }
+}
+
+@keyframes philosophy-dot-drift-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(8px, 10px, 0);
+  }
+}
+
+@keyframes philosophy-dot-drift-d {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(12px, -8px, 0);
+  }
+}
+
+@keyframes philosophy-dot-drift-e {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-10px, 14px, 0);
+  }
+}
+
+.philosophy-dot-a {
+  animation: philosophy-dot-drift-a 10s ease-in-out infinite;
+}
+
+.philosophy-dot-b {
+  animation: philosophy-dot-drift-b 12s ease-in-out infinite;
+}
+
+.philosophy-dot-c {
+  animation: philosophy-dot-drift-c 11s ease-in-out infinite;
+}
+
+.philosophy-dot-d {
+  animation: philosophy-dot-drift-d 13s ease-in-out infinite;
+}
+
+.philosophy-dot-e {
+  animation: philosophy-dot-drift-e 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-wave,
+  .philosophy-dot-a,
+  .philosophy-dot-b,
+  .philosophy-dot-c {
+    animation: none;
+  }
+}

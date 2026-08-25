@@ -84,7 +84,7 @@ export function CursorTrail() {
       ref={containerRef}
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-[9999] hidden lg:block"
-      style={{ opacity: 0, transition: "opacity 0.4s ease-out" }}
+      style={{ opacity: 0, transition: "opacity 2s ease-out" }}
     >
       {Array.from({ length: DOT_COUNT }).map((_, i) => {
         const scale = 1 - i * 0.13
