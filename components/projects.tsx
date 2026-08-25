@@ -92,8 +92,8 @@ more:"Beyond the identity, I helped bring Auswendig to life across its first pub
       more: "As the festival’s creative direction evolved, I took on responsibility for maintaining and developing the brand across its many touchpoints, ensuring that everything felt part of the same visual world. I worked closely with the festival organisers and the wider team, including social media and event planning, to translate their ideas and content into clear, engaging communication throughout the campaign.",
       gallery: [
         "/projects/project-four.png",
+        "/projects/project-four-d.png",
         "/projects/project-four-a.png",
-        "/projects/project-four-b.png",
         "/projects/project-four-c.png",
       ],
     },

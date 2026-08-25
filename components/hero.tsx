@@ -2,7 +2,26 @@
 
 import { scrollToId } from "@/lib/scroll"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
+
+const container: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.22,
+      delayChildren: 0.15,
+    },
+  },
+}
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] }, // slow, confident settle
+  },
+}
 
 export function Hero() {
   return (
@@ -10,35 +29,48 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[calc(100svh-65px)] items-center overflow-hidden px-6 bg-foreground"
     >
-      {/* Animated light band overlay - CORRECTED */}
-      <div 
-        aria-hidden="true" 
+      <div
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
         <div className="absolute inset-0 light-band"></div>
       </div>
 
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 py-20 lg:grid-cols-[1fr_400px]">
-
         <motion.div
           className="px-0"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          variants={container}
+          initial="hidden"
+          animate="show"
         >
-          <p className="mb-6 inline-block border-l-4 border-primary pl-3 text-sm font-semibold uppercase tracking-widest text-background">
+          <motion.p
+            variants={item}
+            className="mb-6 inline-block border-l-4 border-primary pl-3 text-sm font-semibold uppercase tracking-widest text-background"
+          >
             Strategic Design
-          </p>
-          <h1 className="group font-heading text-6xl leading-[0.95] text-background text-balance sm:text-7xl md:text-8xl lg:text-9xl">
-            no <span className="inline-block hum group-hover:animate-hum">buzzwords.</span>
-          </h1>
+          </motion.p>
 
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-background text-pretty">
-            People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy — it's what makes a brand memorable. I create visual identities and design systems that give ideas a language people can connect with.
-          </p>
+          <motion.h1
+            variants={item}
+            className="group font-heading text-6xl leading-[0.95] text-background text-balance sm:text-7xl md:text-8xl lg:text-9xl"
+          >
+            no{" "}
+            <span className="inline-block hum group-hover:animate-hum">
+              buzzwords.
+            </span>
+          </motion.h1>
 
-          <div className="mt-10 inline-block">
+          <motion.p
+            variants={item}
+            className="mt-8 max-w-2xl text-lg leading-relaxed text-background text-pretty"
+          >
+            People trust what they can see, feel, and experience.
+            Authenticity isn't a marketing strategy — it's what makes a brand
+            memorable. I create visual identities and design systems that
+            give ideas a language people can connect with.
+          </motion.p>
+
+          <motion.div variants={item} className="mt-10 inline-block">
             <div className="relative inline-block group">
               <button
                 onClick={() => scrollToId("contact")}
@@ -47,11 +79,20 @@ export function Hero() {
                 It starts with hello!
               </button>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
-        
+
         <div className="flex justify-center">
-          <div className="group relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-none">
+          <motion.div
+            className="group relative w-full max-w-[320px] sm:max-w-[360px] lg:max-w-none"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.4,
+              delay: 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
             <div className="relative z-10">
               <div className="overflow-hidden rounded-2xl shadow-xl">
                 <Image
@@ -61,14 +102,15 @@ export function Hero() {
                   height={500}
                   priority
                   className="h-auto w-full object-cover"
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
 
               <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
                 <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
-                  Hi, I'm Vivi (VV).{' '}
+                  Hi, I'm Vivi (VV).{" "}
                   <button
-                    onClick={() => scrollToId('work')}
+                    onClick={() => scrollToId("work")}
                     className="underline decoration-2 underline-offset-2 bg-transparent p-0 m-0 cursor-pointer"
                     aria-label="Jump to selected work"
                   >
@@ -77,7 +119,7 @@ export function Hero() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
