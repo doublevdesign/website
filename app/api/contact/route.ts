@@ -24,13 +24,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing fields" }, { status: 400 })
     }
 
-    await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>", 
+    const { error } = await resend.emails.send({
+      from: "Portfolio Contact <hello@doublevdesign.at>", 
       to: "vivi@doublevdesign.at", 
       replyTo: email.trim(),
       subject: `New message from ${name.trim()}`,
       text: `Name: ${name.trim()}\nEmail: ${email.trim()}\n\n${message.trim()}`,
     })
+
+    if (error) {
+      console.error("Resend failed to send contact email", error)
+      return NextResponse.json({ error: "Failed to send" }, { status: 502 })
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {
