@@ -1,6 +1,7 @@
 "use client"
 
 import { scrollToId } from "@/lib/scroll"
+import type { Messages } from "@/lib/i18n"
 import Image from "next/image"
 import { motion, type Variants } from "framer-motion"
 
@@ -23,7 +24,7 @@ const item: Variants = {
   },
 }
 
-export function Hero() {
+export function Hero({ messages }: { messages: Messages["hero"] }) {
   return (
     <section
       id="top"
@@ -47,16 +48,16 @@ export function Hero() {
             variants={item}
             className="mb-6 inline-block border-l-4 border-primary pl-3 text-sm font-semibold uppercase tracking-widest text-background"
           >
-            Strategic Design
+            {messages.eyebrow}
           </motion.p>
 
           <motion.h1
             variants={item}
             className="group font-heading text-6xl leading-[0.95] text-background text-balance sm:text-7xl md:text-8xl lg:text-9xl"
           >
-            no{" "}
+            {messages.titleStart}{" "}
             <span className="inline-block hum group-hover:animate-hum">
-              buzzwords.
+              {messages.titleEnd}
             </span>
           </motion.h1>
 
@@ -64,10 +65,7 @@ export function Hero() {
             variants={item}
             className="mt-8 max-w-2xl text-lg leading-relaxed text-background text-pretty"
           >
-            People trust what they can see, feel, and experience.
-            Authenticity isn't a marketing strategy — it's what makes a brand
-            memorable. I create visual identities and design systems that
-            give ideas a language people can connect with.
+            {messages.description}
           </motion.p>
 
           <motion.div variants={item} className="mt-10 inline-block">
@@ -76,7 +74,7 @@ export function Hero() {
                 onClick={() => scrollToId("contact")}
                 className="rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground transition-transform duration-200 group-hover:scale-105"
               >
-                It starts with hello!
+                {messages.contactButton}
               </button>
             </div>
           </motion.div>
@@ -97,7 +95,7 @@ export function Hero() {
               <div className="overflow-hidden rounded-2xl shadow-xl">
                 <Image
                   src="/face-pic-2.jpeg"
-                  alt="Portrait"
+                  alt={messages.portraitAlt}
                   width={400}
                   height={500}
                   priority
@@ -108,13 +106,13 @@ export function Hero() {
 
               <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
                 <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
-                  Hi, I'm Vivi (VV).{" "}
+                  {messages.tagline}{" "}
                   <button
                     onClick={() => scrollToId("work")}
                     className="underline decoration-2 underline-offset-2 bg-transparent p-0 m-0 cursor-pointer"
-                    aria-label="Jump to selected work"
+                    aria-label={messages.workLinkAriaLabel}
                   >
-                    I made this.
+                    {messages.workLink}
                   </button>
                 </p>
               </div>

@@ -12,95 +12,29 @@ import {
 
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
+import type { Messages } from "@/lib/i18n"
 
 import { Caveat } from "next/font/google"
 const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"] })
 
-type Project = {
-  title: string
+type Project = Messages["projects"]["items"][number] & {
   image: string
-  tag: string
-  details: {
-    overview: string
-    more: string
-    gallery: string[]
-  }
+  details: Messages["projects"]["items"][number] & { gallery: string[] }
 }
 
-const projects: Project[] = [
+const projectImages: Record<string, string[]> = {
+  "graz-city-council": ["/projects/project-two.png", "/projects/project-two-a.png", "/projects/project-two-b.png", "/projects/project-two-c.png"],
+  auswendig: ["/projects/project-one.png", "/projects/project-one-a.png", "/projects/project-one-b.png", "/projects/project-one-b0.png", "/projects/project-one-c.png"],
+  "non-profit-fundraising": ["/projects/project-three.png", "/projects/project-three-a.png"],
+  "clima-festival": ["/projects/project-four.png", "/projects/project-four-d.png", "/projects/project-four-a.png", "/projects/project-four-c.png"],
+}
 
-  {
-    title: "Graz City Council election",
-    image: "/projects/project-two.png",
-    tag: "political communications",
-    details: {
-      overview :"Working within strict Austrian political advertising regulations and an established identity system, the challenge was to create a campaign that remained consistent while staying flexible across multiple formats and contexts." ,     
-        
-      more: `I was responsible for the visual direction and production, translating the existing identity into applications across posters, flyers, stickers, apparel, and a branded cargo bike.
-
-       In cooperation with the campaign team and an external designer, I developed production-ready visuals using Photoshop collage work, AI-supported illustration, and detailed mockups to guide photography and final outputs, ensuring consistency across all applications.`,
-      
-        
-        gallery: [
-
-        "/projects/project-two.png",
-        "/projects/project-two-a.png",
-        "/projects/project-two-b.png",
-        "/projects/project-two-c.png",
-      
-      ],
-    },
-  },
-    {
-    title: "Auswendig Visual Identity",
-    image: "/projects/project-one.png",
-    tag: "Branding and UI Design",
-    details: {
-      overview:
-"The developer came to me with a great app idea and a name, but the visual identity was still waiting to be defined. I turned that starting point into a cohesive brand, creating the logo, colour palette, and light and dark theme variations for the app. I also developed a set of custom icons to give the interface its own visual language.",
-      
-more:"Beyond the identity, I helped bring Auswendig to life across its first public touchpoints. I designed the Google Play Store visuals and supported the English-to-German translation of both the app and its Play Store description, making sure the visual and written communication felt consistent throughout.",
-      gallery: [
-        "/projects/project-one.png",
-         "/projects/project-one-a.png",
-        "/projects/project-one-b.png",
-        "/projects/project-one-b0.png",
-        "/projects/project-one-c.png",
-      ],
-    },
-  },
-  {
-    title: "Non-Profit Fundraising",
-    image: "/projects/project-three.png",
-    tag: "B2B Fundraising",
-    details: {
-      overview: "The challenge was to create fundraising materials that felt current and engaging while respecting an established visual identity that had seen little development in recent years. Rather than replacing what already existed, the focus was on identifying the elements that still worked and building a more contemporary visual language around them.",
-      more: "Working from an older campaign and a corporate design manual dating back to 2005, I developed a poster concept aimed at business audiences, balancing professionalism with the approachable tone expected from a children's crisis hotline. The design established a clearer visual hierarchy and a more contemporary look while remaining recognizably part of the existing brand.",
-      gallery: [
-        "/projects/project-three.png",
-        "/projects/project-three-a.png",
-        
-      ],
-    },
-  },
-  {
-    title: "clim@ festival 2023-26",
-    image: "/projects/project-four.png",
-    tag: "Festival Branding",
-    details: {
-      overview: "For three consecutive years, I have brought the clim@ festival’s existing visual identity to life across a wide range of print and digital materials. Working from a brand identity and design manual created by an external designer, I adapted and extended the visual language across everything from posters, flyers and print ads to merchandise, DOOH-advertising, social media content and Google Ads.",
-      more: "As the festival’s creative direction evolved, I took on responsibility for maintaining and developing the brand across its many touchpoints, ensuring that everything felt part of the same visual world. I worked closely with the festival organisers and the wider team, including social media and event planning, to translate their ideas and content into clear, engaging communication throughout the campaign.",
-      gallery: [
-        "/projects/project-four.png",
-        "/projects/project-four-d.png",
-        "/projects/project-four-a.png",
-        "/projects/project-four-c.png",
-      ],
-    },
-  },
-]
-
-export function Projects() {
+export function Projects({ messages }: { messages: Messages["projects"] }) {
+  const projects: Project[] = messages.items.map((item) => ({
+    ...item,
+    image: projectImages[item.id][0],
+    details: { ...item, gallery: projectImages[item.id] },
+  }))
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [galleryIndex, setGalleryIndex] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -114,7 +48,7 @@ export function Projects() {
   const openProject = (project: Project) => {
   setSelectedProject(project)
   setGalleryIndex(0)
-  const idx = projects.findIndex((p) => p.title === project.title)
+  const idx = projects.findIndex((p) => p.id === project.id)
   setCurrentIndex(idx)
   
   }
@@ -196,11 +130,11 @@ export function Projects() {
       <div className="relative mx-auto max-w-6xl px-6 z-10">
        <div>
             <h2 className="font-heading text-5xl text-background text-balance sm:text-6xl md:text-9xl">
-              selected work
+              {messages.heading}
             </h2>
 
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-background text-pretty">
-            Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.
+            {messages.intro}
           </p>
         </div>
         </div>
@@ -218,7 +152,7 @@ export function Projects() {
 
                     
                     <CarouselItem
-                      key={project.title}
+                      key={project.id}
                       className="basis-[67.5%] md:basis-[47%] lg:basis-[38%]"
                     >
                       <article
@@ -252,7 +186,7 @@ export function Projects() {
                           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
                             <Image
                               src={project.image}
-                              alt={`${project.title} project`}
+                              alt={`${project.title} ${messages.projectAlt}`}
                               fill
                               className="object-cover"
                               sizes="(max-width: 768px) 100vw, 50vw"
@@ -359,7 +293,7 @@ export function Projects() {
               className="mb-4 self-end rounded-full border border-border bg-background px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm text-foreground transition hover:bg-muted"
               onClick={closeProject}
             >
-              Close
+              {messages.close}
             </button>
 
             {/* Content area: use flex for deterministic sizing (stack on mobile, row on md+) */}
@@ -369,7 +303,7 @@ export function Projects() {
                   <div className="relative w-full h-full">
                     <Image
                       src={selectedProject.details.gallery[galleryIndex]}
-                      alt={`${selectedProject.title} image ${galleryIndex + 1}`}
+                      alt={`${selectedProject.title} ${messages.imageAlt} ${galleryIndex + 1}`}
                       fill
                       className="object-cover"
                     />
@@ -425,11 +359,11 @@ export function Projects() {
             {/* Footer controls: always visible at bottom of modal */}
             <div className="pt-4 flex items-center justify-between bg-card shrink-0">
               <button onClick={prevProject} className="text-sm text-muted-foreground hover:text-foreground">
-                ← Previous Project
+                ← {messages.previousProject}
               </button>
 
               <button onClick={nextProject} className="text-sm text-muted-foreground hover:text-foreground">
-                Next Project →
+                {messages.nextProject} →
               </button>
             </div>
           </motion.div>

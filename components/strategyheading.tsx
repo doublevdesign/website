@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function StrategyHeading() {
-  const words = ["strategy", "you", "can", "actually", "feel."];
+export default function StrategyHeading({ text }: { text: string }) {
+  const words = text.split(" ");
 
   const ref = useRef<HTMLHeadingElement | null>(null);
   const [visible, setVisible] = useState(false);

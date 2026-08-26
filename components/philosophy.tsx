@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
 import StrategyHeading from "@/components/strategyheading"
+import type { Messages } from "@/lib/i18n"
 // import { PhilosophyDecor } from "@/components/philosophy-decor"
 
-export function Philosophy() {
+export function Philosophy({ messages }: { messages: Messages["philosophy"] }) {
   return (
     <section id="about" className="relative z-20 px-6 pt-6 pb-24 md:pt-16 md:pb-16">
       {/* <PhilosophyDecor /> */}
@@ -14,19 +14,18 @@ export function Philosophy() {
 
     {/* Header */}
     <div className="md:col-span-5">
-      <StrategyHeading />
+      <StrategyHeading text={messages.heading} />
     </div>
 
     {/* Text */}
     <div className="md:col-span-7">
       <div className="max-w-xl">
         <p className="text-lg leading-relaxed text-background text-pretty">
-          Chances are: you're busy. You don't need more disconnected ideas, random visuals, or marketing that doesn't quite know where it's going. You need a clear direction and a brand that helps people understand what makes your business unique.
+          {messages.paragraphOne}
         </p>
 
         <p className="mt-6 text-lg leading-relaxed text-background text-pretty">
-          Together, we turn ideas into a cohesive identity that feels authentic,
-          works in the real world, and gives your brand the confidence to grow.
+          {messages.paragraphTwo}
         </p>
       </div>
     </div>

@@ -2,8 +2,9 @@
 
 import { useState, useRef } from "react"
 import { motion } from "framer-motion"
+import type { Messages } from "@/lib/i18n"
 
-export function ContactFooter() {
+export function ContactFooter({ messages }: { messages: Messages["footer"] }) {
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -40,7 +41,7 @@ export function ContactFooter() {
       setSubmitError(
         error instanceof Error
           ? error.message
-          : "Something went wrong. Please try again.",
+          : messages.submitError,
       )
     } finally {
       setIsSubmitting(false)
@@ -52,7 +53,7 @@ export function ContactFooter() {
       <div className="mx-auto max-w-3xl">
         <div className="relative inline-block">
           <h2 className="font-heading text-5xl text-foreground text-balance sm:text-6xl md:text-7xl">
-            let&apos;s talk.
+            {messages.heading}
           </h2>
           <svg
           viewBox="0 0 300 20"
@@ -77,17 +78,16 @@ export function ContactFooter() {
         </div>
 
         <p className="mt-4 text-lg leading-relaxed text-foreground/70 text-pretty">
-          Tell me what you&apos;re working on. No pitch, no pressure — just a
-          real conversation.
+          {messages.description}
         </p>
 
         {submitted ? (
           <div className="mt-10 rounded-xl bordborderer-l-4 -foreground bg-white p-8">
             <p className="font-heading text-2xl text-foreground">
-              message sent.
+              {messages.successHeading}
             </p>
             <p className="mt-2 text-foreground/70">
-              Thanks for reaching out — I&apos;ll get back to you soon.
+              {messages.successDescription}
             </p>
           </div>
         ) : (
@@ -95,14 +95,14 @@ export function ContactFooter() {
             <div className="grid gap-5 sm:grid-cols-2">
               <FormField
                 id="name"
-                label="Name"
+                label={messages.name}
                 type="text"
                 focusedField={focusedField}
                 setFocusedField={setFocusedField}
               />
               <FormField
                 id="email"
-                label="Email"
+                label={messages.email}
                 type="email"
                 focusedField={focusedField}
                 setFocusedField={setFocusedField}
@@ -110,7 +110,7 @@ export function ContactFooter() {
             </div>
             <FormField
               id="message"
-              label="Message"
+              label={messages.message}
               as="textarea"
               focusedField={focusedField}
               setFocusedField={setFocusedField}
@@ -124,7 +124,7 @@ export function ContactFooter() {
               className="self-start rounded-full px-7 py-3.5 text-base font-semibold text-white"
               style={{ backgroundColor: '#2d1b1f' }}
             >
-              {isSubmitting ? "Sending..." : "Send"}
+              {isSubmitting ? messages.sending : messages.send}
             </motion.button>
             {submitError && (
               <p role="alert" className="text-sm text-primary">
@@ -136,14 +136,14 @@ export function ContactFooter() {
 
         <div className="mt-10 overflow-hidden py-4">
         <div className="flex w-max">
-          <MarqueeContent />
-          <MarqueeContent aria-hidden />
+          <MarqueeContent messages={messages.marquee} />
+          <MarqueeContent messages={messages.marquee} aria-hidden />
         </div>
         </div>
 
         <div className="mt-8 flex flex-col items-center gap-3 border-t border-foreground/20 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <p className="text-xs text-foreground/70">
-            © {new Date().getFullYear()} doublevdesign. All rights reserved.
+            © {new Date().getFullYear()} doublevdesign. {messages.copyright}
           </p>
           <button
             role="button"
@@ -162,7 +162,7 @@ export function ContactFooter() {
             }}
             className="text-xs font-medium text-foreground/70 underline underline-offset-4 transition-colors hover:text-foreground"
           >
-            Impressum
+            {messages.impressum}
           </button>
         </div>
       </div>
@@ -183,19 +183,19 @@ export function ContactFooter() {
               id="impressum-title"
               className="font-heading text-2xl text-foreground"
             >
-              Impressum
+              {messages.impressum}
             </h3>
             <div className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
-              <p>Vivienne Ecker</p>
-              <p>Werbegrafikerin</p>
-              <p>Ferdinandstraße 6/1/18, 1020 Wien, Austria</p>
-              <p>vivi@doublevdesign.at</p>
+              <p>{messages.legalName}</p>
+              <p>{messages.legalRole}</p>
+              <p>{messages.legalAddress}</p>
+              <p>{messages.legalEmail}</p>
             </div>
             <button
               onClick={() => setShowImpressum(false)}
               className="mt-6 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-transform duration-200 hover:scale-105"
             >
-              Close
+              {messages.close}
             </button>
           </div>
         </div>
@@ -204,7 +204,10 @@ export function ContactFooter() {
   )
 }
 
-function MarqueeContent(props: React.HTMLAttributes<HTMLDivElement>) {
+function MarqueeContent({
+  messages,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { messages: string[] }) {
   return (
     <div
       {...props}
@@ -212,13 +215,12 @@ function MarqueeContent(props: React.HTMLAttributes<HTMLDivElement>) {
     >
       {Array.from({ length: 3 }).map((_, i) => (
         <span key={i} className="flex items-center gap-8 whitespace-nowrap">
-  no buzzwords <span className="text-foreground">·</span> no pressure{" "}
-  <span className="text-foreground">·</span> no strings attached{" "}
-  <span className="text-foreground">·</span> no filler{" "}
-  <span className="text-foreground">·</span> real talk{" "}
-  <span className="text-foreground">·</span> real work{" "}
-  <span className="text-foreground">·</span>
-</span>
+          {messages.map((message) => (
+            <span key={message}>
+              {message} <span className="text-foreground">·</span>{" "}
+            </span>
+          ))}
+        </span>
       ))}
     </div>
   )

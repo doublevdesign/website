@@ -1,9 +1,27 @@
 "use client"
 
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { scrollToId } from "@/lib/scroll"
 
-export function SiteHeader() {
+type HeaderMessages = {
+  home: string
+  contact: string
+  switchToEnglish: string
+  switchToGerman: string
+}
+
+export function SiteHeader({
+  locale,
+  messages,
+}: {
+  locale: "en" | "de"
+  messages: HeaderMessages
+}) {
+  const pathname = usePathname()
+  const alternateLocale = locale === "en" ? "de" : "en"
+  const alternatePath = pathname.replace(`/${locale}`, `/${alternateLocale}`)
+
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md px-6">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between py-6">
@@ -33,7 +51,14 @@ export function SiteHeader() {
           }}
           className="px-6 py-3 text-base font-semibold text-foreground transition-colors hover:text-red-500 hover:underline decoration-red-500 decoration-2 underline-offset-4"
         >
-          Contact
+          {messages.contact}
+        </a>
+        <a
+          href={alternatePath}
+          aria-label={locale === "en" ? messages.switchToGerman : messages.switchToEnglish}
+          className="px-3 py-3 text-base font-semibold text-foreground transition-colors hover:text-red-500 hover:underline decoration-red-500 decoration-2 underline-offset-4"
+        >
+          {alternateLocale.toUpperCase()}
         </a>
       </div>
     </header>
