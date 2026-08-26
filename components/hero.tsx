@@ -104,8 +104,7 @@ export function Hero({ messages }: { messages: Messages["hero"] }) {
                 />
               </div>
 
-              <div className="absolute bottom-0 left-6 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">
-                <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
+<div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3 -rotate-2 bg-primary px-5 py-2.5 shadow-sm">                <p className="text-sm sm:text-base font-semibold text-primary-foreground whitespace-nowrap">
                   {messages.tagline}{" "}
                   <button
                     onClick={() => scrollToId("work")}

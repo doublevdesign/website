@@ -1,88 +1,87 @@
 {
   "metadata": {
-    "title": "doublevdesign - strategic design",
-    "description": "Strategic design without the corporate fluff."
+    "title": "doublevdesign - strategisches Design",
+    "description": "Strategisches Design ohne Corporate-Blabla."
   },
   "nav": {
     "home": "Home",
-    "contact": "Contact",
-    "switchToEnglish": "Switch to English",
-    "switchToGerman": "Switch to German",
+    "contact": "Kontakt",
+    "switchToEnglish": "Auf Englisch wechseln",
+    "switchToGerman": "Auf Deutsch wechseln",
     "logoAlt": "Logo"
   },
   "hero": {
-    "eyebrow": "Strategic Design",
-    "titleStart": "no",
-    "titleEnd": "buzzwords.",
-    "description": "People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy - it's what makes a brand memorable. I create visual identities and design systems that give ideas a language people can connect with.",
-    "contactButton": "It starts with hello!",
+    "eyebrow": "Strategisches Design",
+    "titleStart": "ohne",
+    "titleEnd": "blabla.",
+    "description": "Vertrauen entsteht, wenn man sehen, spüren und erleben darf. Authentizität ist nicht zielgruppenabhängig und schon gar keine Marketing-Strategie. Ich entwickle Designsysteme, die Ideen und Identität eine Sprache geben - eine, die Menschen wirklich berührt.",
+    "contactButton": "Bereit für ein Hallo?",
     "portraitAlt": "Portrait",
-    "tagline": "Hi, I'm Vivi (VV).",
-    "workLink": "I made this.",
-    "workLinkAriaLabel": "Jump to selected work"
+    "tagline": "Hi, ich bin Vivi (VV).",
+    "workLink": "Ich mag Design.",
+    "workLinkAriaLabel": "Zu ausgewählten Arbeiten springen"
   },
   "philosophy": {
-    "heading": "strategy you can actually feel.",
-    "paragraphOne": "Chances are: you're busy. You don't need more disconnected ideas, random visuals, or marketing that doesn't quite know where it's going. You need a clear direction and a brand that helps people understand what makes your business unique.",
-    "paragraphTwo": "Together, we turn ideas into a cohesive identity that feels authentic, works in the real world, and gives your brand the confidence to grow."
+    "heading": "design, das wirklich sinn macht.",
+    "paragraphOne": "Wahrscheinlich bist du gerade ziemlich eingespannt. Was du jetzt eher nicht brauchst: noch mehr zerstreute Ideen, wahllose Visuals oder Marketing, das selbst nicht so genau weiß, wohin die Reise geht. Was da hilft? Eine klare Richtung und ein Design, das für dich sprechen und arbeiten kann.",
+    "paragraphTwo": "Gemeinsam machen wir aus Ideen etwas greifbares. Authentisch, alltagstauglich und mit dem nötigen Rückgrat, um dir zu helfen, anstatt dich aufzuhalten."
   },
   "projects": {
-    "heading": "selected work",
-    "intro": "Design works best when it knows where it's going. These projects began by understanding the goal, then creating the clarity, systems, and visuals needed to move it forward.",
-    "projectAlt": "project",
-    "imageAlt": "image",
-    "close": "Close",
-    "previousProject": "Previous Project",
-    "nextProject": "Next Project",
+    "heading": "ausgewählte arbeiten",
+    "intro": "Am Anfang steht immer ein Ziel, aber gutes Design braucht Weitblick um eine Idee auch dort hin zu bekommen, ohne Umwege oder unnötigen Ballast. Erst Konzept, dann System - hübsch wird's am Ende sowieso.",
+    "projectAlt": "Projekt",
+    "imageAlt": "Bild",
+    "close": "Schließen",
+    "previousProject": "Vorheriges Projekt",
+    "nextProject": "Nächstes Projekt",
     "items": [
       {
         "id": "graz-city-council",
-        "title": "Graz City Council election",
-        "tag": "political communications",
-        "overview": "Working within strict Austrian political advertising regulations and an established identity system, the challenge was to create a campaign that remained consistent while staying flexible across multiple formats and contexts.",
-        "more": "I was responsible for the visual direction and production, translating the existing identity into applications across posters, flyers, stickers, apparel, and a branded cargo bike.\n\nIn cooperation with the campaign team and an external designer, I developed production-ready visuals using Photoshop collage work, AI-supported illustration, and detailed mockups to guide photography and final outputs, ensuring consistency across all applications."
+        "title": "Gemeinderatswahl Graz 2026",
+        "tag": "politische Kommunikation",
+        "overview": "Strenge rechtliche Vorgaben für politische Werbung, dazu ein bestehendes Erscheinungsbild. Challenge: Eine Kampagne zu entwickeln, die trotzdem flexibel bleibt - über verschiedenste Formate und Kontexte hinweg.",
+        "more": "Ich war für die visuelle Leitung verantwortlich - von der Konzeption bis zur finalen Umsetzung. Auf Basis des bestehenden Corporate Designs habe ich diverse Druck- und Digitalformate entwickelt, klare Vorgaben und Mockups erstellt und so Konsistenz und Effektivität sichergestellt.\n\nGemeinsam mit dem Kampagnenteam und externen Dienstleistern und Kooperationen sind die finalen Visuals nach meinen Anweisungen entstanden - detaillierte Mockups dienten hier als Vorlage für Fotoshootings und Endproduktion. Vor allem eine außergewöhnlich hohe organische Presseberichterstattung hat bestätigt, dass die Ideen und die visuelle Umsetzung unsere Zielgruppe wie geplant erreicht haben."
       },
       {
         "id": "auswendig",
         "title": "Auswendig Visual Identity",
-        "tag": "Branding and UI Design",
-        "overview": "The developer came to me with a great app idea and a name, but the visual identity was still waiting to be defined. I turned that starting point into a cohesive brand, creating the logo, colour palette, and light and dark theme variations for the app. I also developed a set of custom icons to give the interface its own visual language.",
-        "more": "Beyond the identity, I helped bring Auswendig to life across its first public touchpoints. I designed the Google Play Store visuals and supported the English-to-German translation of both the app and its Play Store description, making sure the visual and written communication felt consistent throughout."
-      },
+        "tag": "Branding und UI-Design",
+        "overview": "Der Entwickler hatte eine starke App-Idee, war sich bei der visuellen Richtung aber noch unsicher. Gemeinsam haben wir den richtigen Vibe gefunden - und sobald der stand, war auch schnell klar, wie sich die App am besten vermarkten lässt: Zielgruppe, Werbekanäle, Tonalität für die Store-Beschreibung, und mehr. Daraus entstand eine runde Marke: Logo, Farbpalette, Varianten für den hellen und dunklen Modus, dazu eigens entwickelte Icons für eine eigene visuelle Sprache.",
+"more": "Über die Identität hinaus habe ich die Marke Auswendig auch bei ihren ersten öffentlichen Auftritten begleitet: Ich habe die Visuals für den Google Play Store gestaltet und die Store-Beschreibung, sowie Werbematerialien vom Englischen ins Deutsche übertragen - damit Bild und Text von Anfang an zusammenpassen."   },
       {
         "id": "non-profit-fundraising",
         "title": "Non-Profit Fundraising",
         "tag": "B2B Fundraising",
-        "overview": "The challenge was to create fundraising materials that felt current and engaging while respecting an established visual identity that had seen little development in recent years. Rather than replacing what already existed, the focus was on identifying the elements that still worked and building a more contemporary visual language around them.",
-        "more": "Working from an older campaign and a corporate design manual dating back to 2005, I developed a poster concept aimed at business audiences, balancing professionalism with the approachable tone expected from a children's crisis hotline. The design established a clearer visual hierarchy and a more contemporary look while remaining recognizably part of the existing brand."
+        "overview": "Die Aufgabe: Fundraising-Materialien, die frisch und ansprechend wirken - ohne ein bestehendes Erscheinungsbild über den Haufen zu werfen, das seit Jahren kaum weiterentwickelt worden war. Statt alles neu zu erfinden, ging es darum, herauszufiltern, was noch trägt, und darum eine zeitgemäßere visuelle Sprache zu bauen.",
+        "more": "Basis waren eine ältere Kampagne und ein Corporate-Design-Manual aus dem Jahr 2005. Daraus ist ein Plakatkonzept für Geschäftskunden entstanden, das professionell wirkt und trotzdem die Nahbarkeit einer Kinder-Kriseneinrichtung vermittelt. Klarere Hierarchie, zeitgemäßerer Look - und trotzdem klar als Teil der bestehenden Marke erkennbar."
       },
       {
         "id": "clima-festival",
-        "title": "clim@ festival 2023-26",
-        "tag": "Festival Branding",
-        "overview": "For three consecutive years, I have brought the clim@ festival's existing visual identity to life across a wide range of print and digital materials. Working from a brand identity and design manual created by an external designer, I adapted and extended the visual language across everything from posters, flyers and print ads to merchandise, DOOH-advertising, social media content and Google Ads.",
-        "more": "As the festival's creative direction evolved, I took on responsibility for maintaining and developing the brand across its many touchpoints, ensuring that everything felt part of the same visual world. I worked closely with the festival organisers and the wider team, including social media and event planning, to translate their ideas and content into clear, engaging communication throughout the campaign."
+        "title": "clim@ Festival 2023-26",
+        "tag": "Festival-Branding",
+        "overview": "Drei Jahre in Folge habe ich das bestehende Erscheinungsbild des clim@ Festivals über unzählige Print- und Digitalformate zum Leben gebracht. Auf Basis eines Brand-Manuals einer externen Designerin habe ich die visuelle Sprache weiterentwickelt - von Plakaten, Flyern und Anzeigen über Merchandise und DOOH-Werbung bis zu Social-Media-Content und Google Ads.",
+        "more": "Mit der Zeit habe ich die Verantwortung für die Marke über all ihre Touchpoints übernommen und dafür gesorgt, dass alles wie aus einem Guss wirkt. Dabei habe ich eng mit dem Festival-Team zusammengearbeitet - von Social Media bis Eventplanung - um Ideen in klare, packende Kommunikation zu übersetzen."
       }
     ]
   },
   "footer": {
-    "heading": "let's talk.",
-    "description": "Tell me what you're working on. No pitch, no pressure - just a real conversation.",
-    "successHeading": "message sent.",
-    "successDescription": "Thanks for reaching out - I'll get back to you soon.",
-    "sending": "Sending...",
-    "send": "Send",
-    "submitError": "Something went wrong. Please try again.",
+    "heading": "reden wir.",
+    "description": "Erzähl mir, worum's geht und ich sag dir ehrlich, ob ich die Richtige dafür bin, oder wer sonst gut passen könnte.",
+    "successHeading": "Nachricht ist raus.",
+    "successDescription": "Danke für deine Nachricht - ich melde mich bald bei dir.",
+    "sending": "Wird gesendet...",
+    "send": "Abschicken",
+    "submitError": "Da ist etwas schiefgelaufen. Versuch's bitte nochmal.",
     "name": "Name",
-    "email": "Email",
-    "message": "Message",
+    "email": "E-Mail",
+    "message": "Nachricht",
     "impressum": "Impressum",
-    "close": "Close",
-    "copyright": "All rights reserved.",
+    "close": "Schließen",
+    "copyright": "Alle Rechte vorbehalten.",
     "legalName": "Vivienne Ecker",
     "legalRole": "Werbegrafikerin",
-    "legalAddress": "Ferdinandstraße 6/1/18, 1020 Wien, Austria",
+    "legalAddress": "Ferdinandstraße 6/1/18, 1020 Wien, Österreich",
     "legalEmail": "vivi@doublevdesign.at",
-    "marquee": ["no buzzwords", "no pressure", "no strings attached", "no filler", "real talk", "real work"]
+    "marquee": ["keine Buzzwords", "kein Druck", "kein Blabla", "ehrliche gespräche", "echte Arbeit"]
   }
 }
