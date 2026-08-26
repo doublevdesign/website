@@ -65,10 +65,13 @@ export function ContactFooter() {
             strokeWidth="8"
             strokeLinecap="round"
             fill="none"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: "easeInOut", delay: 0.3 }}
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              pathLength: { duration: 0.9, ease: "easeInOut", delay: 0.3 },
+              opacity: { duration: 0.12, ease: "linear", delay: 0.3 },
+            }}
           />
         </svg>
         </div>
