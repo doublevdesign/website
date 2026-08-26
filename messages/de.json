@@ -19,7 +19,7 @@
     "portraitAlt": "Portrait",
     "tagline": "Hi, ich bin Vivi (VV).",
     "workLink": "Ich mag Design.",
-    "workLinkAriaLabel": "Zu ausgewählten Arbeiten springen"
+    "workLinkAriaLabel": "Zu ausgewählten Projekten springen"
   },
   "philosophy": {
     "heading": "design, das wirklich sinn macht.",
@@ -27,8 +27,8 @@
     "paragraphTwo": "Gemeinsam machen wir aus Ideen etwas greifbares. Authentisch, alltagstauglich und mit dem nötigen Rückgrat, um dir zu helfen, anstatt dich aufzuhalten."
   },
   "projects": {
-    "heading": "ausgewählte arbeiten",
-    "intro": "Am Anfang steht immer ein Ziel, aber gutes Design braucht Weitblick um eine Idee auch dort hin zu bekommen, ohne Umwege oder unnötigen Ballast. Erst Konzept, dann System - hübsch wird's am Ende sowieso.",
+    "heading": "ausgewählte projekte",
+    "intro": "Am Anfang steht immer ein Ziel, aber gutes Design braucht vor allem Weitblick um eine Idee auch bis dorthin zu bekommen, ohne Umwege oder unnötigen Ballast. Erst Konzept, dann System. Hübsch wird's am Ende sowieso.",
     "projectAlt": "Projekt",
     "imageAlt": "Bild",
     "close": "Schließen",
@@ -47,20 +47,20 @@
         "title": "Auswendig Visual Identity",
         "tag": "Branding und UI-Design",
         "overview": "Der Entwickler hatte eine starke App-Idee, war sich bei der visuellen Richtung aber noch unsicher. Gemeinsam haben wir den richtigen Vibe gefunden - und sobald der stand, war auch schnell klar, wie sich die App am besten vermarkten lässt: Zielgruppe, Werbekanäle, Tonalität für die Store-Beschreibung, und mehr. Daraus entstand eine runde Marke: Logo, Farbpalette, Varianten für den hellen und dunklen Modus, dazu eigens entwickelte Icons für eine eigene visuelle Sprache.",
-"more": "Über die Identität hinaus habe ich die Marke Auswendig auch bei ihren ersten öffentlichen Auftritten begleitet: Ich habe die Visuals für den Google Play Store gestaltet und die Store-Beschreibung, sowie Werbematerialien vom Englischen ins Deutsche übertragen - damit Bild und Text von Anfang an zusammenpassen."   },
+        "more": "Über die Identität hinaus habe ich Auswendig auch bei den ersten öffentlichen Auftritten begleitet, Google Play Store visuals gestaltet und die Beschreibungen vom Englischen in ein natürliches, , sowie Werbematerialien vom Englischen ins Deutsche übertragen - damit Bild und Text von Anfang an zusammenpassen."   },
       {
         "id": "non-profit-fundraising",
         "title": "Non-Profit Fundraising",
         "tag": "B2B Fundraising",
-        "overview": "Die Aufgabe: Fundraising-Materialien, die frisch und ansprechend wirken - ohne ein bestehendes Erscheinungsbild über den Haufen zu werfen, das seit Jahren kaum weiterentwickelt worden war. Statt alles neu zu erfinden, ging es darum, herauszufiltern, was noch trägt, und darum eine zeitgemäßere visuelle Sprache zu bauen.",
-        "more": "Basis waren eine ältere Kampagne und ein Corporate-Design-Manual aus dem Jahr 2005. Daraus ist ein Plakatkonzept für Geschäftskunden entstanden, das professionell wirkt und trotzdem die Nahbarkeit einer Kinder-Kriseneinrichtung vermittelt. Klarere Hierarchie, zeitgemäßerer Look - und trotzdem klar als Teil der bestehenden Marke erkennbar."
-      },
+        "overview": "NummergegenKummer, eine deutsche Krisenhotline, hat sich mit einer Bitte an mich gewandt: Ein Fundraising-Plakat für Geschäftskunden - schnell, mit kleinem Budget, ohne komplettes Rebranding. Das bestehende Erscheinungsbild war seit Jahren unangetastet, also ging es darum, mit dem zu arbeiten, was schon da war, statt bei null anzufangen.",
+        "more": "Ein paar kurze Calls haben gereicht, um zu verstehen, was sie wirklich brauchen. Daraus sind zwei Konzepte entstanden - mit Headline, Copytext und Visuals - aufbauend auf dem Corporate-Design-Manual von 2005 und einer älteren in-House Kampagne. Sie haben sich für eines entschieden, und gemeinsam haben wir daraus ein Plakat gemacht, das vor Geschäftskunden professionell wirkt, aber trotzdem nahbar bleibt: nie aufdringlich, nie kleinlaut, einfach direkt. Im Einsatz ist es bis heute - nach einem Jahr gab's nur einen kleinen Feinschliff und einen neuen QR-Code."     
+     },
       {
         "id": "clima-festival",
         "title": "clim@ Festival 2023-26",
         "tag": "Festival-Branding",
-        "overview": "Drei Jahre in Folge habe ich das bestehende Erscheinungsbild des clim@ Festivals über unzählige Print- und Digitalformate zum Leben gebracht. Auf Basis eines Brand-Manuals einer externen Designerin habe ich die visuelle Sprache weiterentwickelt - von Plakaten, Flyern und Anzeigen über Merchandise und DOOH-Werbung bis zu Social-Media-Content und Google Ads.",
-        "more": "Mit der Zeit habe ich die Verantwortung für die Marke über all ihre Touchpoints übernommen und dafür gesorgt, dass alles wie aus einem Guss wirkt. Dabei habe ich eng mit dem Festival-Team zusammengearbeitet - von Social Media bis Eventplanung - um Ideen in klare, packende Kommunikation zu übersetzen."
+        "overview": "Drei Jahre in Folge habe ich das bestehende Erscheinungsbild des clim@ Festivals über unzählige Print- und Digitalformate zum Leben gebracht. Auf Basis eines Brand-Manuals einer externen Designerin habe ich die visuelle Sprache weiterentwickelt - von Plakaten, Flyern und Anzeigen über Merchandise und DOOH-Werbung bis hin zu Social-Media-Content und Google Ads.",
+        "more": "Schon nach kürzester Zeit habe ich die Verantwortung für die Marke über all ihre Touchpoints übernommen und dafür gesorgt, dass alles wie aus einem Guss wirkt. Das Festival-Team Team und ich waren in stetigem Austausch - von Social Media bis Eventplanung - um Ideen in klare, packende Kommunikation zu übersetzen."
       }
     ]
   },

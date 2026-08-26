@@ -306,6 +306,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                       alt={`${selectedProject.title} ${messages.imageAlt} ${galleryIndex + 1}`}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) calc(100vw - 3rem), 55vw"
                     />
                   </div>
 
@@ -325,7 +326,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                 </div>
 
                 <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 min-h-0 md:basis-[45%] bg-transparent">
-                  <div ref={contentRef} className="min-h-0 flex-1 md:overflow-y-auto overflow-visible">
+                  <div ref={contentRef} className="min-h-0 flex-1 md:overflow-y-auto md:pr-4 overflow-visible">
                   <span className="text-xs font-semibold uppercase tracking-widest text-primary">
                     {selectedProject.tag}
                   </span>
@@ -334,7 +335,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                     {selectedProject.title}
                   </h3>
 
-                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-sm sm:text-[0.9375rem] leading-relaxed text-muted-foreground">
                     {selectedProject.details.overview}
                   </p>
 
@@ -345,7 +346,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                       return (
                         <p
                           key={i}
-                          className={`${firstMoreClass}text-sm sm:text-base leading-relaxed text-muted-foreground mb-4 last:mb-0`}
+                          className={`${firstMoreClass}text-sm sm:text-[0.9375rem] leading-relaxed text-muted-foreground mb-4 last:mb-0`}
                         >
                           {paragraph}
                         </p>

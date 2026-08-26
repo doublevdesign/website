@@ -24,7 +24,7 @@
   "philosophy": {
     "heading": "strategy you can actually feel.",
     "paragraphOne": "Chances are: you're busy. You don't need more disconnected ideas, random visuals, or marketing that doesn't quite know where it's going. You need a clear direction and a brand that helps people understand what makes your business unique.",
-    "paragraphTwo": "Together, we turn ideas into a cohesive identity that feels authentic, works in the real world, and gives your brand the confidence to grow."
+    "paragraphTwo": "Together, we turn ideas into a cohesive identity that feels authentic, works in the real world, and gives your brand something to grow into."
   },
   "projects": {
     "heading": "selected work",
@@ -39,30 +39,30 @@
         "id": "graz-city-council",
         "title": "Graz City Council election",
         "tag": "political communications",
-        "overview": "Working within strict Austrian political advertising regulations and an established identity system, the challenge was to create a campaign that remained consistent while staying flexible across multiple formats and contexts.",
-        "more": "I was responsible for the visual direction and production, translating the existing identity into applications across posters, flyers, stickers, apparel, and a branded cargo bike.\n\nIn cooperation with the campaign team and an external designer, I developed production-ready visuals using Photoshop collage work, AI-supported illustration, and detailed mockups to guide photography and final outputs, ensuring consistency across all applications."
-      },
-      {
+        "overview": "The campaign was working with a brand-new, Austria-wide corporate design that hadn't been tested in the field yet - and it was about to carry a major election campaign, with a team that hadn't worked together in this exact setup before. Responsibilities weren't always clearly split, so a lot of decisions about how the identity should actually work in practice landed with me. I took that on: building out the system across citylights, flyers, stickers, apparel, a cargo bike, a snack bar, and whatever else our team of creative minds came up with - including a set of custom trading cards, because why not.", 
+        "more": "Alongside the campaign team and an external designer, I produced the final visuals: traditional OOH-advertisements, Photoshop collage work, AI-supported illustration, and detailed mockups that guided both the photography and final production. A personal highlight: a before-and-after visualisation of a well-known city square, real vs. reimagined, that ran citywide - landing in every household's mailbox. The campaign ended up generating a solid amount of organic press coverage - a good sign the visual identity was landing the way it was meant to."     
+         },     
+          {     
         "id": "auswendig",
         "title": "Auswendig Visual Identity",
         "tag": "Branding and UI Design",
-        "overview": "The developer came to me with a great app idea and a name, but the visual identity was still waiting to be defined. I turned that starting point into a cohesive brand, creating the logo, colour palette, and light and dark theme variations for the app. I also developed a set of custom icons to give the interface its own visual language.",
-        "more": "Beyond the identity, I helped bring Auswendig to life across its first public touchpoints. I designed the Google Play Store visuals and supported the English-to-German translation of both the app and its Play Store description, making sure the visual and written communication felt consistent throughout."
-      },
+        "overview": "The developer came to me with a great concept and name for his app, but wasn't sure yet what it should look like. After exploring a few rough drafts, we quickly landed on a visual identity – and once that clicked, the rest followed fast: who to target, where to advertise, how to talk about it in the Play Store listing and Google Ads. Out of that came a cohesive brand: logo, colour palette, light and dark theme variations, plus a set of custom icons to give the interface its own visual language. From there, I stayed involved in the finer details too: alignment, spacing, font sizing, flagging what needed adjusting as he built the interface, so the design held up in the actual product, not just on paper.",
+        "more": "Beyond the identity, I helped bring Auswendig to life across its first public touchpoints. I designed the Google Play Store visuals and reviewed the German translation of the app to make sure it read naturally, shaping the tone and copywriting along the way. That same visual direction carried over to his website, where I helped pulling together assets, colours and typography into a cohesive personal brand."      
+        },
       {
         "id": "non-profit-fundraising",
         "title": "Non-Profit Fundraising",
         "tag": "B2B Fundraising",
-        "overview": "The challenge was to create fundraising materials that felt current and engaging while respecting an established visual identity that had seen little development in recent years. Rather than replacing what already existed, the focus was on identifying the elements that still worked and building a more contemporary visual language around them.",
-        "more": "Working from an older campaign and a corporate design manual dating back to 2005, I developed a poster concept aimed at business audiences, balancing professionalism with the approachable tone expected from a children's crisis hotline. The design established a clearer visual hierarchy and a more contemporary look while remaining recognizably part of the existing brand."
-      },
-      {
+        "overview": "A children's crisis hotline needed a fundraising poster aimed at business donors - fast, on a tight budget, and without a full rebrand. The existing identity hadn't been touched in years, so the job was to work with what already existed rather than start from scratch.",
+        "more": "After a few short calls to nail down what they needed, I put together two concepts based on their 2005 corporate design manual and an older campaign - headline, copy, and visuals included. They picked one, and we shaped it into a poster that reads as professional to a business audience while still feeling approachable - never pushy, never small, just direct. It's been in use ever since, with just a quick QR code swap and a small tweak a year in."      
+        },
+        {
         "id": "clima-festival",
         "title": "clim@ festival 2023-26",
         "tag": "Festival Branding",
-        "overview": "For three consecutive years, I have brought the clim@ festival's existing visual identity to life across a wide range of print and digital materials. Working from a brand identity and design manual created by an external designer, I adapted and extended the visual language across everything from posters, flyers and print ads to merchandise, DOOH-advertising, social media content and Google Ads.",
-        "more": "As the festival's creative direction evolved, I took on responsibility for maintaining and developing the brand across its many touchpoints, ensuring that everything felt part of the same visual world. I worked closely with the festival organisers and the wider team, including social media and event planning, to translate their ideas and content into clear, engaging communication throughout the campaign."
-      }
+        "overview": "The festival came with a solid brand identity and design manual from an external designer, but over three years and dozens of formats, most real-world use cases went beyond what the manual actually covered. On top of that, the people running the festival changed more than once - so alongside applying the identity myself across posters, flyers, print ads, merchandise, DOOH advertising, social content, and Google Ads, I became the point of reference for it: explaining the logic behind it to new organisers, designers, and social media people whenever they came on board, so the voice stayed consistent even as the team around it didn't.",
+        "more": "Over those three years, I kept the brand aligned as both the applications and the people behind them kept changing - working closely with organisers, social media, and event planning to make sure new formats always felt like part of the same world, not one-off exceptions."
+        }
     ]
   },
   "footer": {
