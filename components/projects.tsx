@@ -23,10 +23,10 @@ type Project = Messages["projects"]["items"][number] & {
 }
 
 const projectImages: Record<string, string[]> = {
-  "graz-city-council": ["/projects/project-two.png", "/projects/project-two-a.png", "/projects/project-two-b.png", "/projects/project-two-c.png"],
+  "graz-city-council": ["/projects/project-two.png", "/projects/project-two-a.png", "/projects/project-two-b.png", "/projects/project-two-c.png", "/projects/project-two-d.png"],
   auswendig: ["/projects/project-one.png", "/projects/project-one-a.png", "/projects/project-one-b.png", "/projects/project-one-b0.png", "/projects/project-one-c.png"],
-  "non-profit-fundraising": ["/projects/project-three.png", "/projects/project-three-a.png"],
-  "clima-festival": ["/projects/project-four.png", "/projects/project-four-d.png", "/projects/project-four-a.png", "/projects/project-four-c.png"],
+  "non-profit-fundraising": ["/projects/project-three.png", "/projects/project-three-a.png", "/projects/project-three-b.png"],
+  "clima-festival": ["/projects/project-four.png", "/projects/project-four-d.png", "/projects/project-four-a.png", "/projects/project-four-c.png","/projects/project-four-e.png"],
 }
 
 export function Projects({ messages }: { messages: Messages["projects"] }) {
@@ -35,6 +35,17 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
     image: projectImages[item.id][0],
     details: { ...item, gallery: projectImages[item.id] },
   }))
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)")
+    const updateDesktopState = () => setIsDesktop(mediaQuery.matches)
+
+    updateDesktopState()
+    mediaQuery.addEventListener("change", updateDesktopState)
+    return () => mediaQuery.removeEventListener("change", updateDesktopState)
+  }, [])
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [galleryIndex, setGalleryIndex] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -133,7 +144,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
               {messages.heading}
             </h2>
 
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-background text-pretty">
+          <p className="mt-8 max-w-3xl text-lg leading-relaxed text-background text-pretty">
             {messages.intro}
           </p>
         </div>
@@ -170,7 +181,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                               ? "scale-95 hover:scale-100"
                               : "scale-95 hover:scale-98"
                           }`}
-                          initial={{ opacity: 0, y: 8 }}
+                          initial={{ opacity: 0, y: isDesktop ? 8 : 0 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true, amount: 0.2 }}
                           transition={{ duration: 0.5, ease: "easeOut" }}

@@ -14,8 +14,8 @@
     "eyebrow": "Strategic Design",
     "titleStart": "no",
     "titleEnd": "buzzwords.",
-    "description": "People trust what they can see, feel, and experience. Authenticity isn't a marketing strategy - it's what makes a brand memorable. I create visual identities and design systems that give ideas a language people can connect with.",
-    "contactButton": "It starts with hello!",
+    "description": "People trust what they can see, feel, and experience and authenticity isn't a marketing strategy - it's what makes a brand memorable. I create visual identities and design systems that give ideas a language people can connect with.",
+    "contactButton": "Let's start with hello!",
     "portraitAlt": "Portrait",
     "tagline": "Hi, I'm Vivi (VV).",
     "workLink": "I made this.",
@@ -46,22 +46,22 @@
         "id": "auswendig",
         "title": "Auswendig Visual Identity",
         "tag": "Branding and UI Design",
-        "overview": "The developer came to me with a great concept and name for his app, but wasn't sure yet what it should look like. After exploring a few rough drafts, we quickly landed on a visual identity – and once that clicked, the rest followed fast: who to target, where to advertise, how to talk about it in the Play Store listing and Google Ads. Out of that came a cohesive brand: logo, colour palette, light and dark theme variations, plus a set of custom icons to give the interface its own visual language. From there, I stayed involved in the finer details too: alignment, spacing, font sizing, flagging what needed adjusting as he built the interface, so the design held up in the actual product, not just on paper.",
-        "more": "Beyond the identity, I helped bring Auswendig to life across its first public touchpoints. I designed the Google Play Store visuals and reviewed the German translation of the app to make sure it read naturally, shaping the tone and copywriting along the way. That same visual direction carried over to his website, where I helped pulling together assets, colours and typography into a cohesive personal brand."      
+        "overview": "Auswendig came to me with a strong concept and name, but the visual identity still needed to be defined. After exploring a few rough drafts, we quickly landed on a direction - and once that clicked, the rest followed fast: target audience, ad channels, how to talk about it in the Play Store listing. I directed the Google Ads campaign that followed and advised on positioning beyond the visuals themselves. Out of that came a cohesive brand: logo, colour palette, light and dark theme variations, plus a set of custom icons to give the interface its own visual language. From there, I stayed involved in the finer details too: alignment, spacing, font sizing, flagging what needed adjusting as the interface came together, so the design held up in the actual product, not just on paper.",
+         "more": "Beyond the identity, I assisted with Auswendig's first public touchpoints: designing the Google Play Store visuals and reviewing the German translation to make sure it read naturally, shaping the tone and copywriting along the way. That same visual direction carried over to the website, where I directed the use of assets, colours and typography into a cohesive brand."
         },
       {
         "id": "non-profit-fundraising",
         "title": "Non-Profit Fundraising",
         "tag": "B2B Fundraising",
-        "overview": "A children's crisis hotline needed a fundraising poster aimed at business donors - fast, on a tight budget, and without a full rebrand. The existing identity hadn't been touched in years, so the job was to work with what already existed rather than start from scratch.",
-        "more": "After a few short calls to nail down what they needed, I put together two concepts based on their 2005 corporate design manual and an older campaign - headline, copy, and visuals included. They picked one, and we shaped it into a poster that reads as professional to a business audience while still feeling approachable - never pushy, never small, just direct. It's been in use ever since, with just a quick QR code swap and a small tweak a year in."      
+        "overview": "NummergegenKummer, a children's crisis hotline, needed a fundraising poster aimed at business donors - fast, on a tight budget, and without a full rebrand. The existing identity hadn't been touched in years, so the job was to work with what already existed rather than start from scratch.",
+        "more": "After a short call to nail down what they needed, I put together two concepts based on a (somewhat outdated) 2005 corporate design manual and a previous in-house campaign the marketing team put together. They picked one - headline, copy, and visuals included, and I shaped it into a poster that reads as professional to a business audience while still feeling approachable. It's been in use ever since, with just a quick QR code swap and a small tweak a year in."      
         },
         {
         "id": "clima-festival",
         "title": "clim@ festival 2023-26",
         "tag": "Festival Branding",
-        "overview": "The festival came with a solid brand identity and design manual from an external designer, but over three years and dozens of formats, most real-world use cases went beyond what the manual actually covered. On top of that, the people running the festival changed more than once - so alongside applying the identity myself across posters, flyers, print ads, merchandise, DOOH advertising, social content, and Google Ads, I became the point of reference for it: explaining the logic behind it to new organisers, designers, and social media people whenever they came on board, so the voice stayed consistent even as the team around it didn't.",
-        "more": "Over those three years, I kept the brand aligned as both the applications and the people behind them kept changing - working closely with organisers, social media, and event planning to make sure new formats always felt like part of the same world, not one-off exceptions."
+        "overview": "The festival came with a solid brand identity and design manual from an external designer, but over three years and dozens of formats, most real-world use cases went beyond what the manual actually covered. On top of that, the people running the festival changed more than once - so alongside applying the identity myself across posters, flyers, print ads, merchandise, DOOH advertising, social content, and Google Ads, I became the point of reference for it: explaining the logic behind it to new organisers, designers, and project managers whenever they came on board, so the voice stayed consistent even as the team around it didn't.",
+        "more": "Over those three years, I kept the brand aligned as both the applications and the event itself changed - shifting in scope, picking up new company partnerships, reaching new audiences along the way. Political talks advertised in the newspaper, a thrift swap promoted on social media, a family magic show announced on flyers handed out around the neighbourhood - all still recognisably part of the same world."
         }
     ]
   },

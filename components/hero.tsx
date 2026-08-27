@@ -70,12 +70,15 @@ export function Hero({ messages }: { messages: Messages["hero"] }) {
 
           <motion.div variants={item} className="mt-10 inline-block">
             <div className="relative inline-block group">
-              <button
+              <motion.button
                 onClick={() => scrollToId("contact")}
-                className="rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground transition-transform duration-200 group-hover:scale-105"
+                whileHover={{ rotate: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                className="rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground"
               >
                 {messages.contactButton}
-              </button>
+              </motion.button>
             </div>
           </motion.div>
         </motion.div>

@@ -14,7 +14,7 @@
     "eyebrow": "Strategisches Design",
     "titleStart": "ohne",
     "titleEnd": "blabla.",
-    "description": "Vertrauen entsteht, wenn man sehen, spüren und erleben darf. Authentizität ist nicht zielgruppenabhängig und schon gar keine Marketing-Strategie. Ich entwickle Designsysteme, die Ideen und Identität eine Sprache geben - eine, die Menschen wirklich berührt.",
+    "description": "Vertrauen entsteht, wenn man sehen, spüren und erleben darf. Authentizität ist nicht zielgruppenabhängig und schon gar keine Marketing-Strategie. Ich entwickle Designsysteme, die Ideen und Identität eine Sprache geben - eine, die Menschen wirklich erreicht.",
     "contactButton": "Bereit für ein Hallo?",
     "portraitAlt": "Portrait",
     "tagline": "Hi, ich bin Vivi (VV).",
@@ -23,11 +23,11 @@
   },
   "philosophy": {
     "heading": "design, das wirklich sinn macht.",
-    "paragraphOne": "Wahrscheinlich bist du gerade ziemlich eingespannt. Was du jetzt eher nicht brauchst: noch mehr zerstreute Ideen, wahllose Visuals oder Marketing, das selbst nicht so genau weiß, wohin die Reise geht. Was da hilft? Eine klare Richtung und ein Design, das für dich sprechen und arbeiten kann.",
+    "paragraphOne": "Lass mich raten: du bist gerade ziemlich eingespannt. Was du jetzt eher nicht brauchst: noch mehr zerstreute Ideen, wahllose Visuals oder Marketing, das selbst nicht so genau weiß, wohin die Reise geht. Was da hilft? Eine klare Richtung und ein Design, das für dich sprechen und arbeiten kann.",
     "paragraphTwo": "Gemeinsam machen wir aus Ideen etwas greifbares. Authentisch, alltagstauglich und mit dem nötigen Rückgrat, um dir zu helfen, anstatt dich aufzuhalten."
   },
   "projects": {
-    "heading": "ausgewählte projekte",
+    "heading": "schau her.",
     "intro": "Am Anfang steht immer ein Ziel, aber gutes Design braucht vor allem Weitblick um eine Idee auch bis dorthin zu bekommen, ohne Umwege oder unnötigen Ballast. Erst Konzept, dann System. Hübsch wird's am Ende sowieso.",
     "projectAlt": "Projekt",
     "imageAlt": "Bild",
@@ -39,8 +39,8 @@
         "id": "graz-city-council",
         "title": "Gemeinderatswahl Graz 2026",
         "tag": "politische Kommunikation",
-        "overview": "Strenge rechtliche Vorgaben für politische Werbung, dazu ein bestehendes Erscheinungsbild. Challenge: Eine Kampagne zu entwickeln, die trotzdem flexibel bleibt - über verschiedenste Formate und Kontexte hinweg.",
-        "more": "Ich war für die visuelle Leitung verantwortlich - von der Konzeption bis zur finalen Umsetzung. Auf Basis des bestehenden Corporate Designs habe ich diverse Druck- und Digitalformate entwickelt, klare Vorgaben und Mockups erstellt und so Konsistenz und Effektivität sichergestellt.\n\nGemeinsam mit dem Kampagnenteam und externen Dienstleistern und Kooperationen sind die finalen Visuals nach meinen Anweisungen entstanden - detaillierte Mockups dienten hier als Vorlage für Fotoshootings und Endproduktion. Vor allem eine außergewöhnlich hohe organische Presseberichterstattung hat bestätigt, dass die Ideen und die visuelle Umsetzung unsere Zielgruppe wie geplant erreicht haben."
+        "overview": "Strenge rechtliche Vorgaben für politische Werbung und dazu ein völlig neues, österreichweites Corporate Design, das nun eine große Wahlkampagne tragen sollte. Eine Challenge wie aus dem Lehrbuch. Gleichzeitig war das Team in dieser Konstellation neu zusammengesetzt und Zuständigkeiten waren nicht immer klar verteilt, wodurch ich letztlich Entscheidungen über die Anwendungsbereiche und kreativen Freiheiten unseres Designs übernommen habe. Meine Aufgabe war das System über Citylights, Flyer, Sticker, diverses Merchandise, ein Lastenrad, eine Snack-Bar und Alles, was unserem Team sonst so eingefallen ist auszuweiten – inklusive eigener Trading Cards, weil wieso auch nicht?",
+        "more": "Gemeinsam mit dem Kampagnenteam und einer externen Designerin habe ich die finalen Visuals entwickelt: klassische OOH-Werbung, Photoshop-Collagen, KI-gestützte Illustrationen und detaillierte Mockups, die sowohl das Fotoshooting als auch die finale Produktion angeleitet haben. Ein persönliches Highlight war eine Vorher-Nachher-Visualisierung des Grazer Griesplatzes, die in den Briefkästen sämtlicher Haushalte in der Stadt landete. Am Ende sorgte die Kampagne für eine beachtliche Menge an organischer Berichterstattung – ein gutes Zeichen dafür, dass die visuelle Identität unsere Zielgruppe auch genau so gut erreicht hat, wie geplant."
       },
       {
         "id": "auswendig",
