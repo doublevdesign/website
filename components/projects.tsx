@@ -26,7 +26,7 @@ const projectImages: Record<string, string[]> = {
   "graz-city-council": ["/projects/project-two.png", "/projects/project-two-a.png", "/projects/project-two-b.png", "/projects/project-two-c.png", "/projects/project-two-d.png"],
   "auswendig": ["/projects/project-one.png", "/projects/project-one-a.png", "/projects/project-one-b.png", "/projects/project-one-b0.png", "/projects/project-one-c.png"],
   "non-profit-fundraising": ["/projects/project-three.png", "/projects/project-three-a.png", "/projects/project-three-b.png"],
-  "clima-festival": ["/projects/project-four.png", "/projects/project-four-d.png", "/projects/project-four-a.png", "/projects/project-four-c.png","/projects/project-four-e.png"],
+  "clima-festival": ["/projects/project-four.png", "/projects/project-four-b.png", "/projects/project-four-a.png", "/projects/project-four-c.png","/projects/project-four-e.png"],
 }
 
 export function Projects({ messages }: { messages: Messages["projects"] }) {
@@ -316,6 +316,8 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                       src={selectedProject.details.gallery[galleryIndex]}
                       alt={`${selectedProject.title} ${messages.imageAlt} ${galleryIndex + 1}`}
                       fill
+                      loading="eager"
+                      quality={75}
                       className="object-cover"
                       sizes="(max-width: 768px) calc(100vw - 3rem), 55vw"
                     />
