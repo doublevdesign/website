@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next'
 import { Azeret_Mono, Alfa_Slab_One } from 'next/font/google'
 import './globals.css'
 import { CursorTrail } from "@/components/cursor-trail"
-import { isLocale } from "@/lib/i18n"
 
 const azeretMono = Azeret_Mono({
   variable: '--font-azeret-mono',
@@ -45,19 +44,14 @@ export const viewport: Viewport = {
   ],
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode
-  params: Promise<{ locale?: string }>
 }>) {
-  const { locale: value } = await params
-  const locale = value && isLocale(value) ? value : 'en'
-
   return (
     <html
-      lang={locale}
+      lang="en"
       className={`${azeretMono.variable} ${alfaSlabOne.variable} bg-background`}
     >
       <body className="font-sans antialiased">

@@ -7,8 +7,6 @@ import { getMessages, isLocale, locales, type Locale } from "@/lib/i18n"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-const siteUrl = "https://doublevdesign.at"
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
 }
@@ -25,13 +23,6 @@ export async function generateMetadata({
   return {
     title: messages.metadata.title,
     description: messages.metadata.description,
-    alternates: {
-      canonical: `${siteUrl}/${value}/`,
-      languages: {
-        en: `${siteUrl}/en/`,
-        de: `${siteUrl}/de/`,
-      },
-    },
   }
 }
 
