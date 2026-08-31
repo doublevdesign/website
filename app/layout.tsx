@@ -3,6 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import { Azeret_Mono, Alfa_Slab_One } from 'next/font/google'
 import './globals.css'
 import { CursorTrail } from "@/components/cursor-trail"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 const azeretMono = Azeret_Mono({
   variable: '--font-azeret-mono',
@@ -55,6 +57,7 @@ export default function RootLayout({
       className={`${azeretMono.variable} ${alfaSlabOne.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+          <SpeedInsights />
         <CursorTrail />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
