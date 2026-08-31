@@ -1,4 +1,4 @@
-import { ContactFooter } from "@/components/contact-footer"
+import dynamic from "next/dynamic"
 import { Hero } from "@/components/hero"
 import { Philosophy } from "@/components/philosophy"
 import { Projects } from "@/components/projects"
@@ -6,6 +6,14 @@ import { SiteHeader } from "@/components/site-header"
 import { getMessages, isLocale, locales, type Locale } from "@/lib/i18n"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+
+const ContactFooter = dynamic(
+  () => import("@/components/contact-footer").then((mod) => mod.ContactFooter),
+  {
+    ssr: false,
+    loading: () => <div className="h-[420px] w-full" aria-hidden="true" />,
+  },
+)
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
