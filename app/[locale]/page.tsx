@@ -19,10 +19,24 @@ export async function generateMetadata({
   const { locale: value } = await params
   if (!isLocale(value)) notFound()
 
+  const siteUrl = "https://doublevdesign.at"
+  const currentPath = `/${value}/`
+  const alternateBase = {
+    en: `${siteUrl}/en/`,
+    de: `${siteUrl}/de/`,
+  }
+
   const messages = getMessages(value)
   return {
     title: messages.metadata.title,
     description: messages.metadata.description,
+    alternates: {
+      canonical: `${siteUrl}${currentPath}`,
+      languages: {
+        en: alternateBase.en,
+        de: alternateBase.de,
+      },
+    },
   }
 }
 
