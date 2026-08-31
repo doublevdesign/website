@@ -166,14 +166,11 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                       key={project.id}
                       className="basis-[67.5%] md:basis-[47%] lg:basis-[38%]"
                     >
-                      <article
-                        className="group relative flex w-full cursor-pointer flex-col opacity-100 hover:z-10"
-                        role="button"
-                        tabIndex={0}
+                      <motion.button
+                        type="button"
+                        className="group relative flex w-full cursor-pointer flex-col bg-transparent p-0 text-left opacity-100 hover:z-10"
                         onClick={() => openProject(project)}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") openProject(project)
-                        }}
+                        aria-label={`Open ${project.title}`}
                       >
                         <motion.div
                           className={`flex w-full flex-col transition-transform duration-500 delay-150 transform-gpu will-change-transform ${
@@ -222,7 +219,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
 
                           
                         </motion.div>
-                      </article>
+                      </motion.button>
                     </CarouselItem>
                   )
                 })}
