@@ -14,9 +14,6 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import type { Messages } from "@/lib/i18n"
 
-import { Caveat } from "next/font/google"
-const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"] })
-
 type Project = Messages["projects"]["items"][number] & {
   image: string
   details: Messages["projects"]["items"][number] & { gallery: string[] }
@@ -197,7 +194,7 @@ export function Projects({ messages }: { messages: Messages["projects"] }) {
                               alt={`${project.title} ${messages.projectAlt}`}
                               fill
                               className="object-cover"
-                              sizes="(max-width: 768px) 100vw, 50vw"
+                              sizes="(max-width: 768px) 68vw, (max-width: 1024px) 47vw, 38vw"
                             />
 
                             {isActive && (

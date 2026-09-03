@@ -102,6 +102,7 @@ export function Hero({ messages }: { messages: Messages["hero"] }) {
                   width={400}
                   height={500}
                   priority
+                  sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) 360px, 400px"
                   className="h-auto w-full object-cover"
                   style={{ width: "100%", height: "auto" }}
                 />

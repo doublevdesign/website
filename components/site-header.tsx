@@ -39,6 +39,7 @@ export function SiteHeader({
             width={280}
             height={96}
             className="h-14 w-auto transition-opacity hover:opacity-80"
+            sizes="164px"
             priority
           />
         </a>
