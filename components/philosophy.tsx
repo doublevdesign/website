@@ -1,11 +1,9 @@
 import StrategyHeading from "@/components/strategyheading"
 import type { Messages } from "@/lib/i18n"
-// import { PhilosophyDecor } from "@/components/philosophy-decor"
 
 export function Philosophy({ messages }: { messages: Messages["philosophy"] }) {
   return (
     <section id="about" className="relative z-20 px-6 pt-6 pb-24 md:pt-16 md:pb-16">
-      {/* <PhilosophyDecor /> */}
       <div className="relative z-10 mx-auto max-w-6xl">
     
     
